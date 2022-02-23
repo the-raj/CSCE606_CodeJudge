@@ -3,6 +3,6 @@
 
 ### Team members
 - [Karthik Mohan Raj](https://www.linkedin.com/in/the-raj)
-- [Paul Schade](people.tamu.edu/~pascha)
+- [Paul Schade](https://www.people.tamu.edu/~pascha)
 - Laren Spear
 - Kathan Vyas
