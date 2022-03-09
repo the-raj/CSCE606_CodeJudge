@@ -11,5 +11,9 @@
 - [Dr. Philip C. Ritchey](https://people.engr.tamu.edu/pcr/index.html)
   - [Calendly](https://calendly.com/pcr/15-min-office-hours-appointment)
 
+### Project Links
+- [PivotalTracker](https://www.pivotaltracker.com/n/projects/2555182)
+- [Heroku Dashboard](https://dashboard.heroku.com/apps/csce606codejudge)
+
 ## Iterations
 - [Iteration 0](https://github.com/the-raj/CSCE606_CodeJudge/blob/master/documentation/Spring2022/i0.tar)
