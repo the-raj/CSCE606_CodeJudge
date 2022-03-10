@@ -20,8 +20,7 @@
 - [Heroku Dashboard](https://dashboard.heroku.com/apps/csce606-codejudge)
 - [Heroku App](https://csce606-codejudge.herokuapp.com)
 - [Cucumber Dashboard](https://studio.cucumber.io/projects/317601)
-- add some more links as needed
--
+- 
 
 ### Useful commands
 
