@@ -16,6 +16,12 @@
 - [Heroku Dashboard](https://dashboard.heroku.com/apps/csce606-codejudge)
 - [Cucumber Dashboard](https://studio.cucumber.io/projects/317601)
 - add some more links as needed
+- 
+
+### Useful commands
+```sh
+git subtree push --prefix codejudge heroku master
+```
 
 ## Iterations
 - [Iteration 0](https://github.com/the-raj/CSCE606_CodeJudge/blob/master/documentation/Spring2022/i0.tar)
