@@ -20,12 +20,18 @@
 - [Heroku Dashboard](https://dashboard.heroku.com/apps/csce606-codejudge)
 - [Heroku App](https://csce606-codejudge.herokuapp.com)
 - [Cucumber Dashboard](https://studio.cucumber.io/projects/317601)
-- 
+-
 
 ### Useful commands
 
 ```sh
 git subtree push --prefix codejudge heroku master
+```
+
+Installing pg gem locally on mac with libpg installed by homebrew
+
+```sh
+gem install pg -v '0.21' -- --with-pg-config=/usr/local/Cellar/libpq/14.2/bin/pg_config
 ```
 
 ## Iterations
