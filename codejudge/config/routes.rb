@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'errors/not_found'
+
+  get 'errors/internal_server_error'
+
   resources :users
   root 'welcome#index'
   post 'log_in', to: 'welcome#log_in'
@@ -13,4 +17,7 @@ Rails.application.routes.draw do
   # post 'password/reset', to: 'password_resets#create'
   # get 'password/reset/edit', to: 'password_resets#edit'
   # patch 'password/reset/edit', to: 'password_resets#update'
+
+  match "/404", to: "errors#not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
 end

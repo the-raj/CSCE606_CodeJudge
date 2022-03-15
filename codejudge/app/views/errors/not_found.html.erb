@@ -1,0 +1,6 @@
+<% content_for :title, "404" %>
+<% content_for :error_content do %>
+  <h2>Oops! Looks like we did not find the page you requested.</h2>
+  <%= link_to "Back", :back %>
+<% end %>
+<%= render template: "layouts/error" %>
