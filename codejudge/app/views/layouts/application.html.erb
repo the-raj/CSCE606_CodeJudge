@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Codejudge</title>
+    <title><%= (yield(:title) + " | " unless yield(:title).blank?).to_s + "CodeJudge" %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield :head %>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="application-page" class="layout">
+      <%= render "partials/header" %>
+      <div class="container-fluid">
+        <div class="row">
+          <main>
+            <%= content_for?(:content) ? yield(:content) : yield %>
+          </main>
+        </div>
+      </div>
+      <%= render "partials/footer" %>
+    </div>
   </body>
 </html>

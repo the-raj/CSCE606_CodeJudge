@@ -1,0 +1,71 @@
+// --------------
+// Helper classes
+// --------------
+
+.left {
+  text-align: left;
+  text-align-last: left;
+}
+
+.right {
+  text-align: right;
+  text-align-last: right;
+}
+
+.center {
+  text-align: center;
+  text-align-last: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.justify {
+  text-align: justify;
+  text-align-last: justify;
+}
+
+.hidden {
+  display: none;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mb-0-md {
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0 !important;
+  }
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.no-hyphens {
+  hyphens: none;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.marker {
+  border: 1px solid red;
+}
+
+.error {
+  color: red;
+}

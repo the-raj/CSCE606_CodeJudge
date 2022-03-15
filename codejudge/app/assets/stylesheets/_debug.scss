@@ -1,0 +1,68 @@
+// ------------------
+// GRID DEBUG OVERLAY
+// ------------------
+
+// body {
+//   &.debug {
+//     &::before {
+//       position: fixed;
+//       top: 0;
+//       right: 0;
+//       bottom: 0;
+//       left: 0;
+//       margin: auto;
+//       background-image: none;
+//       background-color: rgba($color: #d22020, $alpha: 0.1);
+//       z-index: 1000;
+//       content: '';
+//       pointer-events: none;
+
+//       @each $breakpoint in map-keys($reflex-breakpoints) {
+//         @include media-breakpoint-up($breakpoint) {
+//           // $gutter-width: map-get($grid-gutter-widths, $breakpoint);
+//           $column-width: calc(100% / #{$reflex-columns} - #{$reflex-grid-spacing * 2});
+//           $grid-color: rgba(
+//             $color: #d22020,
+//             $alpha: 0.3
+//           );
+
+//           background-image: repeating-linear-gradient(
+//             to right,
+//             transparent,
+//             transparent $reflex-grid-spacing,
+//             $grid-color $reflex-grid-spacing,
+//             $grid-color calc(#{$column-width} + #{$reflex-grid-spacing}),
+//             transparent calc(#{$column-width} + #{$reflex-grid-spacing}),
+//             transparent calc(#{$column-width} + #{$reflex-grid-spacing} * 2)
+//           );
+//           max-width: map-get($map: $reflex-breakpoints, $key: $breakpoint);
+//         }
+//       }
+//     }
+
+//     &::after {
+//       // @include font-text-bold;
+
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       position: fixed;
+//       top: 20px;
+//       right: 20px;
+//       width: 50px;
+//       height: 50px;
+//       border-radius: 50%;
+//       background-color: red;
+//       color: $color-white;
+//       font-size: 16px;
+//       z-index: 1001;
+//       content: 'sm';
+
+//       @each $breakpoint in map-keys($reflex-breakpoints) {
+//         @include media-breakpoint-up($breakpoint) {
+//           content: '#{$breakpoint}';
+//         }
+//       }
+//     }
+//   }
+// }

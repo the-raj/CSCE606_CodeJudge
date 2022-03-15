@@ -1,0 +1,53 @@
+// ------
+// COLORS
+// ------
+$color-black-light: #191919;
+$color-black: black;
+$color-white: white;
+$color-mint: #6cc;
+$color-green-light: #77daa7;
+$color-green: #5ec580;
+$color-green-dark: #00b462;
+$color-lime-light: #d9e8d4;
+$color-beige-light: #f5f2e7;
+$color-beige: #f4f0e0;
+$color-orange-light: #f99b36;
+$color-orange: #f29f39;
+$color-orange-dark: #cc5c02;
+$color-turquoise-light: #34bc93;
+$color-turquoise: #066;
+$color-turquoise-dark: #0d6666;
+$color-blue-light: #39c;
+$color-blue: #0076b2;
+$color-blue-dark: #036;
+$color-red: red;
+
+// -------------
+// COLOR-MAPPERS
+// -------------
+$color-text: $color-black-light;
+$color-info-background-primary: $color-green-light;
+$color-info-background-secondary: $color-beige;
+$color-info-primary: $color-green;
+$color-info-secondary: $color-mint;
+$color-info-description-text: $color-turquoise;
+
+$color-quiz-background-primary: $color-blue;
+$color-quiz-background-secondary: $color-beige-light;
+
+$color-help-background-primary: $color-orange-dark;
+$color-help-background-secondary: $color-orange-light;
+
+$color-cta-primary: #ff9a00;
+$color-cta-secondary: #ffb644;
+
+$color-article-background-primary: $color-lime-light;
+$color-article-background-secondary: $color-beige;
+
+$color-fallback-background-primary: $color-lime-light;
+$color-fallback-background-secondary: $color-beige;
+
+$color-article-link-green: $color-green-dark;
+
+$color-infobit: $color-turquoise-dark;
+

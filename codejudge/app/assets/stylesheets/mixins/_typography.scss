@@ -1,0 +1,162 @@
+// -----------
+// FONT MIXINS
+// -----------
+@mixin font-text-light {
+  font-family: "Lato-Light", "Verdana", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-variant: none;
+}
+
+@mixin font-text-light-italic {
+  font-family: "Lato-LightItalic", "Verdana", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-variant: none;
+}
+
+@mixin font-text-regular {
+  font-family: "Lato-Regular", "Verdana", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: none;
+}
+
+@mixin font-text-italic {
+  font-family: "Lato-Italic", "Verdana", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-variant: none;
+}
+
+@mixin font-text-bold {
+  font-family: "Lato-Bold", "Verdana", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-variant: none;
+}
+
+@mixin font-text-bold-italic {
+  font-family: "Lato-BoldItalic", "Verdana", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-variant: none;
+}
+
+// ----------------
+// FONT SIZE MIXINS
+// ----------------
+@function calculate-rem($size, $baseSize: 16px) {
+  $remSize: $size / $baseSize;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculate-rem($size);
+}
+
+@mixin line-height($size) {
+  line-height: $size;
+  line-height: calculate-rem($size);
+}
+
+@mixin font-size-h1 {
+  @include font-size($font-size-h1-sm);
+  @include line-height($line-height-h1-sm);
+
+  @include media-breakpoint-up(md) {
+    @include font-size($font-size-h1-md);
+    @include line-height($line-height-h1-md);
+  }
+}
+
+@mixin font-size-h2 {
+  @include font-size($font-size-h2-sm);
+  @include line-height($line-height-h2-sm);
+
+  @include media-breakpoint-up(md) {
+    @include font-size($font-size-h2-md);
+    @include line-height($line-height-h2-md);
+  }
+}
+
+@mixin font-size-h3 {
+  @include font-size($font-size-h3-sm);
+  @include line-height($line-height-h3-sm);
+
+  @include media-breakpoint-up(md) {
+    @include font-size($font-size-h3-md);
+    @include line-height($line-height-h3-md);
+  }
+}
+
+@mixin font-size-h4 {
+  @include font-size($font-size-h4-sm);
+  @include line-height($line-height-h4-sm);
+
+  @include media-breakpoint-up(md) {
+    @include font-size($font-size-h4-md);
+    @include line-height($line-height-h4-md);
+  }
+}
+
+@mixin font-size-cta {
+  @include font-size($font-size-cta-sm);
+  @include line-height($line-height-cta-sm);
+
+  @include media-breakpoint-up(md) {
+    @include font-size($font-size-cta-md);
+    @include line-height($line-height-cta-md);
+  }
+}
+
+@mixin font-size-link {
+  @include font-size($font-size-link-sm);
+  @include line-height($line-height-link-sm);
+
+  @include media-breakpoint-up(md) {
+    @include font-size($font-size-link-md);
+    @include line-height($line-height-link-md);
+  }
+}
+
+@mixin font-size-link-small {
+  @include font-size($font-size-link-small-sm);
+  @include line-height($line-height-link-small-sm);
+
+  @include media-breakpoint-up(md) {
+    @include font-size($font-size-link-small-md);
+    @include line-height($line-height-link-small-md);
+  }
+}
+
+@mixin font-size-subline {
+  @include font-size($font-size-subline-sm);
+  @include line-height($line-height-subline-sm);
+
+  @include media-breakpoint-up(md) {
+    font-size: $font-size-subline-md;
+    line-height: $line-height-subline-md;
+  }
+}
+
+@mixin font-size-copy {
+  @include font-size($font-size-copy-sm);
+  @include line-height($line-height-copy-sm);
+
+  @include media-breakpoint-up(md) {
+    @include font-size($font-size-copy-md);
+    @include line-height($line-height-copy-md);
+  }
+}
+
+@mixin font-size-copy-small {
+  @include font-size($font-size-copy-small-sm);
+  @include line-height($line-height-copy-small-sm);
+
+  @include media-breakpoint-up(md) {
+    @include font-size($font-size-copy-small-md);
+    @include line-height($line-height-copy-small-md);
+  }
+}
