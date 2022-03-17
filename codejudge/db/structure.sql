@@ -1,6 +1,8 @@
 
 BEGIN TRANSACTION;
 
+CREATE SCHEMA codejudge;
+
 CREATE table codejudge.USERS
 (
     ID          SERIAL,

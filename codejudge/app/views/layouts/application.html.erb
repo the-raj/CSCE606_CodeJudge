@@ -1,25 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= (yield(:title) + " | " unless yield(:title).blank?).to_s + "CodeJudge" %></title>
+    <title>Codejudge</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= yield :head %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <div id="application-page" class="layout">
-      <%= render "partials/header" %>
-      <div class="container-fluid">
-        <div class="row">
-          <main>
-            <%= content_for?(:content) ? yield(:content) : yield %>
-          </main>
-        </div>
-      </div>
-      <%= render "partials/footer" %>
-    </div>
+    <%= yield %>
   </body>
 </html>
