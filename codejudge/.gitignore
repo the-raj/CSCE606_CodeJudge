@@ -12,11 +12,11 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
-# Ignore pidfiles, but keep the directory.
-/tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
+
+# Ignore Byebug command history file.
+.byebug_history
 
 # Ignore uploaded files in development.
 /storage/*
