@@ -10,16 +10,14 @@
   </head>
 
   <body>
-    <div id="application-page" class="layout">
-      <%= render "partials/header" %>
-      <div class="container-fluid">
+    <div id="login-page" class="layout">
+      <div class="container">
         <div class="row">
-          <main>
-            <%= content_for?(:content) ? yield(:content) : yield %>
-          </main>
+          <div class="col-12 col-md-6 offset-md-3">
+            <%= content_for?(:login_content) ? yield(:login_content) : yield %>
+          </div>
         </div>
       </div>
-      <%= render "partials/footer" %>
     </div>
   </body>
 </html>
