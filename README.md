@@ -34,6 +34,13 @@ Installing pg gem locally on mac with libpg installed by homebrew
 gem install pg -v '0.21' -- --with-pg-config=/usr/local/Cellar/libpq/14.2/bin/pg_config
 ```
 
+To push to heroku
+
+```sh
+heroku container:push web
+heroku container:release web
+```
+
 ## Iterations
 
 - [Iteration 0](https://github.com/the-raj/CSCE606_CodeJudge/blob/master/documentation/Spring2022/i0.tar)

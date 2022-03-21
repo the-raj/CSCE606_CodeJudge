@@ -60,11 +60,14 @@ services:
     # Specify the values of the environment variables
     # used in this container.
     environment:
-      RAILS_ENV: development
+      RAILS_ENV: production
       DATABASE_NAME: codejudge
       DATABASE_USER: postgres
       DATABASE_PASSWORD:
       DATABASE_HOST: database
+
+    env_file:
+      - .env
 
 # Declare the volumes that our application uses.
 volumes:
