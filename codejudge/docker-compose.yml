@@ -7,8 +7,8 @@ version: "3.8"
 # is another service ("database").
 services:
   database:
-    # Use the postgres 11.5 base image for this container.
-    image: postgres:11.5
+    # Use the postgres 13 base image for this container.
+    image: postgres:13
 
     volumes:
       # We need to tell Docker where on the PostgreSQL
@@ -60,10 +60,10 @@ services:
     # Specify the values of the environment variables
     # used in this container.
     environment:
-      RAILS_ENV: production
+      RAILS_ENV: development
       DATABASE_NAME: codejudge
       DATABASE_USER: postgres
-      DATABASE_PASSWORD:
+      DATABASE_PASSWORD: postgres
       DATABASE_HOST: database
 
     env_file:

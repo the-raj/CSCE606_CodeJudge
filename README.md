@@ -22,17 +22,44 @@
 - [Cucumber Dashboard](https://studio.cucumber.io/projects/317601)
 -
 
-### Useful commands
+### Installation instructions
+
+First rename the file `.env.example` to `.env` and fill in the missing parameters from the Drive.
+
+After that you can follow th next steps:
+
+1. Install Docker.
+2. Switch to the app directory (you're already here)
+3. run
 
 ```sh
-git subtree push --prefix codejudge heroku master
+docker-compose build
 ```
 
-Installing pg gem locally on mac with libpg installed by homebrew
+If this returns an error, make sure Docker is running.
+
+4. run
 
 ```sh
-gem install pg -v '0.21' -- --with-pg-config=/usr/local/Cellar/libpq/14.2/bin/pg_config
+docker-compose run web rails db:create
 ```
+
+5. run
+
+```sh
+docker-compose up
+```
+
+Your container is now running!
+Go to localhost:3000 (or the specified port) to interact with the page.
+
+If you want to create the container from scratch later, run
+
+```sh
+docker-compose down -v
+```
+
+More info: https://www.codewithjason.com/dockerize-rails-application/
 
 To push to heroku
 
