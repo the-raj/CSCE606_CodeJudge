@@ -48,9 +48,6 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 gem "sassc-rails"
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
 # Using bootsrap's grid system
 gem 'bootstrap', '~> 5.1.3'
 
