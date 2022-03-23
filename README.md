@@ -24,7 +24,9 @@
 
 ### Installation instructions
 
-First rename the file `.env.example` to `.env` and fill in the missing parameters from the Drive.
+<!-- First rename the file `.env.example` to `.env` and fill in the missing parameters from the Drive. -->
+
+Download the [master.key](https://drive.google.com/file/d/1Ev6fz1ax5-DNLO8t26obGikVIG6K-t4T/view?usp=sharing) file and save it in the `config/` dirctory.
 
 After that you can follow th next steps:
 
@@ -41,7 +43,7 @@ If this returns an error, make sure Docker is running.
 4. run
 
 ```sh
-docker-compose run web rails db:create
+docker-compose run web rails db:create db:schema:load
 ```
 
 5. run

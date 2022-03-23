@@ -35,7 +35,7 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
     ports:
-      - "5431:5432"
+      - "5432:5432"
 
   web:
     # The root directory from which we're building.
