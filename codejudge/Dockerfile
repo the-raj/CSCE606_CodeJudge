@@ -10,7 +10,6 @@ RUN apt-get update -qq && apt-get install -y yarn postgresql-client
 # Run yarn install to install JavaScript dependencies.
 RUN yarn install --check-files
 
-
 # Use a directory called /code in which to store
 # this application's files. (The directory name
 # is arbitrary and could have been anything.)
@@ -25,9 +24,8 @@ RUN bundle install
 # directory.
 COPY . /code
 
-
 # Precomplile
-# RUN RAILS_ENV=production bundle exec rake assets:precompile
+RUN RAILS_ENV=production bundle exec rake assets:precompile
 
 # Set "rails server -b 0.0.0.0" as the command to
 # run when this container starts.
