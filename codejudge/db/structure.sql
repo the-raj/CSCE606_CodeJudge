@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-CREATE DATABASE codejudge;
+-- CREATE DATABASE codejudge;
 
 CREATE SCHEMA codejudge;
 

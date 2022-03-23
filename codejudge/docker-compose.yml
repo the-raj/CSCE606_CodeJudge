@@ -7,8 +7,8 @@ version: "3.8"
 # is another service ("database").
 services:
   database:
-    # Use the postgres 13 base image for this container.
-    image: postgres:13
+    # Use the postgres 11.5 base image for this container.
+    image: postgres:11.5
 
     volumes:
       # We need to tell Docker where on the PostgreSQL
@@ -34,6 +34,9 @@ services:
       # user called (arbitrarily) boats_development.
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
+    ports:
+      - "5431:5432"
+
   web:
     # The root directory from which we're building.
     build: .
@@ -42,8 +45,8 @@ services:
     # directory get synced with Docker. Without this line,
     # we'd have to restart the container every time we
     # changed a file.
-    # volumes:
-    #   - .:/code:cached
+    volumes:
+      - .:/code:cached
 
     # The command to be run when we run "docker-compose up".
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -62,12 +65,9 @@ services:
     environment:
       RAILS_ENV: development
       DATABASE_NAME: codejudge
-      DATABASE_USER: postgres
-      DATABASE_PASSWORD: postgres
+      DATABASE_USER: codejudge
+      DATABASE_PASSWORD:
       DATABASE_HOST: database
-
-    env_file:
-      - .env
 
 # Declare the volumes that our application uses.
 volumes:
