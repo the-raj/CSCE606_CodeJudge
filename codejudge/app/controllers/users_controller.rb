@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
+    p params[:notice]
     @users = User.all
   end
 
