@@ -43,6 +43,8 @@ input {
 }
 
 button {
+  @include theme(background-color, link, 1px solid);
+
   cursor: pointer;
   height: 45px;
   border: none;
