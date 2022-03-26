@@ -59,7 +59,6 @@ services:
     # container which we've called "database".
     depends_on:
       - database
-      # - chrome
 
     # Specify the values of the environment variables
     # used in this container.
@@ -69,12 +68,6 @@ services:
       DATABASE_USER: codejudge
       DATABASE_PASSWORD:
       DATABASE_HOST: database
-      # HUB_URL: http://chrome:4444/wd/hub
-
-  # chrome:
-  #   image: selenium/standalone-chrome:4.1.0 # this version should match that of the selenium-webdriver gem (see Gemfile)
-  #   volumes:
-  #     - /dev/chrome:/dev/chrome
 
 # Declare the volumes that our application uses.
 volumes:
