@@ -1,7 +1,7 @@
 # https://cucumber.io/docs/guides/10-minute-tutorial/
 
 Given('the admin is on the login page') do
-  @browser.navigate.to("https://csce606-codejudge.herokuapp.com/")
+  @browser.navigate.to(@url)
 end
 
 Given('the admin provides correct credentials') do

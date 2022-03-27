@@ -18,6 +18,7 @@ browser = Selenium::WebDriver.for :chrome, capabilities: capabilities
 
 Before do |scenario|
 	@browser = browser
+	@url = "https://csce606-codejudge.herokuapp.com/"
 end
 
 at_exit do
