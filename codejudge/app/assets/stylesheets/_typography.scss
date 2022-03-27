@@ -2,7 +2,7 @@ html,
 body {
   @include font-text-regular;
 
-  color: $color-black-light;
+  // color: $color-black-light;
   font-size: $font-size-copy-sm;
 }
 
@@ -17,14 +17,14 @@ p {
 
 h1 {
   @include font-size-h1;
-  @include font-text-bold;
+  @include font-headline-regular;
 
   margin-bottom: $margin-h1;
 }
 
 h2 {
   @include font-size-h2;
-  @include font-text-bold;
+  @include font-headline-bold;
 
   margin-bottom: $margin-h2;
 

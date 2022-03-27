@@ -1,0 +1,10 @@
+@import "./themes/mixins";
+
+$themes: ();
+$themeValues: ();
+@import "./themes/light";
+@include generateThemeMappings(light, $light);
+
+// @debug "THEMES#{$themes}";
+// @debug "THEME_VALUES#{$themeValues}";
+// @debug "THEMES #{map-values($map: $themes)}";
