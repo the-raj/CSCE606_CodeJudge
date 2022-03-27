@@ -1,13 +1,20 @@
-require 'selenium/webdriver'
+require 'selenium-webdriver'
 
 # capabilities = Selenium::WebDriver::Remote::Capabilities.new
-
 # capabilities['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
 # capabilities['name'] = 'My first Test'
 # capabilities['browserName'] = ENV['SELENIUM_BROWSER'] || 'chrome'
 # capabilities['version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
 
-browser = Selenium::Driver.new(browser: :remote, url: ENV['HUB_URL'])
+# Create and set capabilities for chrome headless browser
+capabilities = [
+	Selenium::WebDriver::Remote::Capabilities.chrome(
+	  'goog:chromeOptions' => {
+		  	    'args' => [ "--headless", "--disable-gpu", "--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage" ]
+			}
+	)
+]
+browser = Selenium::WebDriver.for :chrome, capabilities: capabilities
 
 Before do |scenario|
 	@browser = browser
