@@ -1,0 +1,27 @@
+<%= form_for(problem) do |f| %>
+  <% if problem.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(problem.errors.count, "error") %> prohibited this problem from being saved:</h2>
+
+      <ul>
+        <% problem.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :problem_text %>
+    <%= f.text_field :problem_text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number_test_cases %>
+    <%= f.number_field :number_test_cases %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
