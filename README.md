@@ -43,7 +43,7 @@ If this returns an error, make sure Docker is running.
 4. run
 
 ```sh
-docker-compose run web rails db:create db:schema:load
+docker-compose run web rails db:create db:schema:load db:seed
 ```
 
 5. run
