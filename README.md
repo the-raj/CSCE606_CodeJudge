@@ -73,3 +73,5 @@ heroku container:release web
 ## Iterations
 
 - [Iteration 0](https://github.com/the-raj/CSCE606_CodeJudge/blob/master/documentation/Spring2022/i0.tar)
+- [Iteration 1](https://github.com/the-raj/CSCE606_CodeJudge/blob/master/documentation/Spring2022/i1.tar)
+- [Iteration 2](https://github.com/the-raj/CSCE606_CodeJudge/blob/master/documentation/Spring2022/i2.tar)
