@@ -1,0 +1,14 @@
+button {
+  @include theme(background-color, button-background);
+  @include theme(color, copy-secondary);
+  cursor: pointer;
+  height: 45px;
+  border: none;
+  // background-color: $color-black;
+  // color: $color-white;
+  font-size: 15px;
+
+  &:hover {
+    @include theme(background-color, button-background-hover);
+  }
+}

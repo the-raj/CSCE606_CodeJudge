@@ -1,0 +1,17 @@
+@import "functions";
+
+$light: (
+  background: color(white),
+  copy-primary: color(black),
+  copy-secondary: color(white),
+  button-background: color(maroon),
+  button-background-hover: color(dark-maroon),
+  // borderDark: color(tronDarkBlue),
+  // borderLight: color(tronLightBlue),
+  // textDark: color(black),
+  // textLight: color(white),
+  // backgroundDark: color(tronDarkBlue),
+  // backgroundLight: color(tronLightBlue),
+  link: color(sea-blue),
+  link-hover: color(ateneo-blue),
+);

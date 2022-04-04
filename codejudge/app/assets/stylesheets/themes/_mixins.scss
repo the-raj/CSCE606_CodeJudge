@@ -1,0 +1,62 @@
+@import "functions";
+
+@mixin theme($property, $key, $inlineExtra: null, $postExtra: null) {
+  // @debug "VALUE #{$themes}";
+  @each $theme in $themes {
+    @if (themeExists($key, $theme)) {
+      $value: getThemeValue($key, $theme);
+      .#{$theme} & {
+        #{$property}: #{$inlineExtra}
+          #{$value}
+          #{$postExtra}; //fallback for browsers that shouldn't exist anymore
+        #{$property}: #{$inlineExtra}
+          var(--theme-#{$theme}-#{$key}, #{$value})
+          #{$postExtra};
+      }
+    } @else {
+      @error "Property #{$key} doesn't exist in #{$theme}";
+    }
+  }
+}
+
+/*
+  @mixin generateThemeMappings(themeName: string, themeMap: map)
+  helper function for generating list of theme variables and adding to existing map.
+  This will add a new theme to the themes array and the theme color list.
+*/
+@mixin generateThemeMappings($themeName, $newThemeMap) {
+  //creates/adds to list of theme names
+  $themes: append($themes, $themeName, $separator: comma) !global;
+  @each $key, $value in $newThemeMap {
+    //adds new themeKey if doesn't exist
+    @if not map-has-key($themeValues, $key) {
+      $themeValues: map-merge(
+        $themeValues,
+        (
+          $key: (
+            $themeName: $value,
+          ),
+        )
+      ) !global;
+    }
+    //adds to existing key map
+    @else {
+      $existingKeyMap: map-get($themeValues, $key);
+      //if theme variable doesn't exist, add it
+      @if not map-get($existingKeyMap, $themeName) {
+        $newKeyMap: map-merge(
+          $existingKeyMap,
+          (
+            $themeName: $value,
+          )
+        );
+        $themeValues: map-merge(
+          $themeValues,
+          (
+            $key: $newKeyMap,
+          )
+        ) !global;
+      }
+    }
+  }
+}
