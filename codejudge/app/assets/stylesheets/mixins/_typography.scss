@@ -24,7 +24,21 @@
 
 @mixin font-text-italic {
   font-family: "OpenSans-Italic", "Verdana", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
+  font-style: italic;
+  font-variant: none;
+}
+
+@mixin font-text-medium {
+  font-family: "OpenSans-Medium", "Verdana", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-variant: none;
+}
+
+@mixin font-text-medium-italic {
+  font-family: "OpenSans-MediumItalic", "Verdana", sans-serif;
+  font-weight: 500;
   font-style: italic;
   font-variant: none;
 }
