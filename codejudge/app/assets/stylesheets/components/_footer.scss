@@ -7,22 +7,24 @@
   }
 
   &__logo {
-    width: 30%;
+    width: 200px;
   }
 
   &__submenu {
     @include theme(background-color, footer-submenu-background);
-    height: 80px;
+    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     ul {
       display: flex;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     li {
-      margin-right: 15px;
+      margin: 15px;
     }
 
     a {

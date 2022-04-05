@@ -1,0 +1,28 @@
+.table {
+  // table-layout: fixed;
+  overflow-x: auto;
+
+  table {
+    width: 100%;
+
+    th {
+      // white-space: normal;
+      text-align: left;
+    }
+
+    tr {
+      @include theme(background-color, table-row-primary);
+
+      &:nth-child(even) {
+        @include theme(background-color, table-row-secondary);
+      }
+    }
+
+    th,
+    td {
+      padding: 0.5em;
+      min-width: 50px;
+      border-bottom: 1px solid #d0d0d0;
+    }
+  }
+}
