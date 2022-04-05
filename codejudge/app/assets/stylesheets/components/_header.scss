@@ -1,0 +1,65 @@
+.header {
+  @include theme(background-color, header-background);
+
+  height: 100px;
+
+  &__content {
+    display: flex;
+    height: 100%;
+  }
+
+  ul,
+  li,
+  a {
+    height: 100%;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li > a {
+    @include theme(color, header-link);
+    @include font-text-bold;
+    @include font-size(16px);
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 40px;
+    text-transform: uppercase;
+
+    &::after {
+      @include theme(background-color, header-link-hover);
+
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    &:hover {
+      @include theme(color, header-link-hover);
+
+      &::after {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#logo {
+  @include font-headline-bold;
+  @include font-size(40px);
+  @include theme(color, header-link);
+
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+  transform: translateY(-3px);
+}

@@ -1,4 +1,11 @@
-<header>
-  <%# Put content here %>
-  <%# <p>HEADER</p> %>
+<header class="header">
+  <div class="header__content container">
+    <%= link_to "CodeJudge", root_path, id: "logo" %>
+    <nav>
+      <ul>
+        <li><%= link_to "Problems", problems_path %></li>
+        <li><%= link_to "Users", users_path %></li>
+      </ul>
+    </nav>
+  </div>
 </header>
