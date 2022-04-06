@@ -17,13 +17,13 @@
         <td><%= link_to 'Show', problem %></td>
         <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
         <td>
-          <%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are
-          you sure?' } %>
+          <%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
       <% end %>
     </tbody>
   </table>
 </div>
-
-<%= link_to "New problem", new_problem_path %>
+<div>
+  <%= link_to "New problem", new_problem_path, :class => "button" %>
+</div>

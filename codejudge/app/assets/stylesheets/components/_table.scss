@@ -1,6 +1,7 @@
 .table {
   // table-layout: fixed;
   overflow-x: auto;
+  margin-bottom: 50px;
 
   table {
     width: 100%;
@@ -8,6 +9,8 @@
     th {
       // white-space: normal;
       text-align: left;
+      @include font-text-bold;
+      @include font-size(18px);
     }
 
     tr {

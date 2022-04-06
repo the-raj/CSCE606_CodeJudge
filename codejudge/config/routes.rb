@@ -1,11 +1,11 @@
 
 Rails.application.routes.draw do
-  resources :problems
   get 'errors/not_found'
-
+  
   get 'errors/internal_server_error'
-
+  
   resources :users
+  resources :problems
   root 'welcome#index'
   post 'log_in', to: 'welcome#log_in'
   # get 'sign_up', to: 'registrations#new'

@@ -1,8 +1,14 @@
-button {
+.button {
   @include theme(background-color, button-background);
   @include theme(color, copy-secondary);
   cursor: pointer;
+  display: inline-block;
+  // min-width: 80px;
   height: 45px;
+  line-height: 45px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  text-align: center;
   border: none;
   // background-color: $color-black;
   // color: $color-white;

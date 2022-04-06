@@ -11,17 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Description" %>
-    <%= f.text_field :body %>
-  </div>
-
-  <div>
-    <%= f.submit %>
-  </div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label "Description" %>
+  <%= f.text_area :body %>
+  <%= f.submit :class => "button"%>
 <% end %>

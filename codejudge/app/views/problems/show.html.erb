@@ -10,7 +10,7 @@
   <%= @problem.body %>
 </p>
 <div>
-  <%= link_to "Edit this problem", edit_problem_path(@problem) %> | 
-  <%= link_to "Back to problems", problems_path %> 
-  <%= button_to "Destroy this problem", @problem, method: :delete %>
+  <%= link_to "Edit this problem", edit_problem_path(@problem), :class => "button" %>
+  <%= link_to "Back to problems", problems_path, :class => "button" %> 
+  <%= button_to "Destroy this problem", @problem, method: :delete, :class => "button" %>
 </div>
