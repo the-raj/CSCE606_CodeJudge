@@ -1,0 +1,40 @@
+.footer {
+  section {
+    @include theme(background-color, footer-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 200px;
+  }
+
+  &__submenu {
+    @include theme(background-color, footer-submenu-background);
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    li {
+      margin: 15px;
+    }
+
+    a {
+      @include font-text-medium;
+      @include theme(color, footer-submenu-link);
+      text-transform: uppercase;
+
+      &:hover {
+        @include theme(color, footer-submenu-link-hover);
+      }
+    }
+  }
+}

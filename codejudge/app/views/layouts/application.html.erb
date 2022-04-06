@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= (yield(:title) + " | " unless yield(:title).blank?).to_s + "CodeJudge" %></title>
-    <%= csrf_meta_tags %>
-    <%= favicon_link_tag asset_path('monitor-judge.png') %>
-    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
-    <%= javascript_importmap_tags %>
-    <%= yield :head %>
+    <title>
+      <%= (yield(:title) + " | " unless yield(:title).blank?).to_s +
+      "CodeJudge"%>
+    </title>
+    <%= csrf_meta_tags %> <%= favicon_link_tag asset_path('monitor-judge.png')%>
+    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %> <%=
+    javascript_importmap_tags %> <%= yield :head %>
   </head>
 
   <body>
     <div id="application-page" class="layout">
       <%= render "partials/header" %>
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
-          <main>
-            <%= content_for?(:content) ? yield(:content) : yield %>
-          </main>
+          <main><%= content_for?(:content) ? yield(:content) : yield %></main>
         </div>
       </div>
       <%= render "partials/footer" %>

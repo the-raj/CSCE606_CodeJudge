@@ -26,6 +26,15 @@ body {
   top: 0;
 }
 
+.layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  margin-top: auto;
+}
+
 body {
   // background-color: $color-beige;
 }
