@@ -29,10 +29,14 @@ end
 
 #TEST PROBLEMS
 
-Problem.create(body: "Output should contain one line, containing the string 'Hello World!'.")
+Problem.create(
+  title: "Hello World",
+  body: "Output should contain one line, containing the string 'Hello World!'."
+)
 
 (1..50).each do |id|
   Problem.create(
+    title: Faker::Lorem.sentence(word_count: 3),
     body: Faker::Lorem.paragraph(sentence_count: 5)
   )
 end
