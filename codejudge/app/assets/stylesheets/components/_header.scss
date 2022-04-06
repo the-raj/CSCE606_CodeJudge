@@ -1,6 +1,5 @@
 .header {
   @include theme(background-color, header-background);
-
   height: 100px;
 
   &__content {
@@ -8,9 +7,19 @@
     height: 100%;
   }
 
+  &__left {
+    display: flex;
+  }
+
+  &__right {
+    margin-left: auto;
+  }
+
   ul,
   li,
-  a {
+  a,
+  form,
+  button {
     height: 100%;
   }
 

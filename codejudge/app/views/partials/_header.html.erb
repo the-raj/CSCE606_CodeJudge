@@ -1,11 +1,16 @@
 <header class="header">
   <div class="header__content container">
-    <%= link_to "CodeJudge", root_path, id: "logo" %>
-    <nav>
-      <ul>
-        <li><%= link_to "Problems", problems_path %></li>
-        <li><%= link_to "Users", users_path %></li>
-      </ul>
-    </nav>
+    <div class="header__left">
+      <%= link_to "CodeJudge", root_path, id: "logo" %>
+      <nav>
+        <ul>
+          <li><%= link_to "Problems", problems_path %></li>
+          <li><%= link_to "Users", users_path %></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header__right">
+      <%= button_to 'Logout', log_out_path, method: :delete %>
+    </div>
   </div>
 </header>
