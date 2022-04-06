@@ -2,16 +2,15 @@
 
 <p>
   <strong>Problem:</strong>
-  <%= @problem.problem_text %>
+  <%= @problem.title %>
 </p>
 
 <p>
-  <strong>Number of test cases:</strong>
-  <%= @problem.number_test_cases %>
+  <strong>Description:</strong>
+  <%= @problem.body %>
 </p>
 <div>
-  <%= link_to "Edit this problem", edit_problem_path(@problem) %> |
-  <%= link_to "Back to problems", problems_path %>
-
+  <%= link_to "Edit this problem", edit_problem_path(@problem) %> | 
+  <%= link_to "Back to problems", problems_path %> 
   <%= button_to "Destroy this problem", @problem, method: :delete %>
 </div>
