@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   resources :users
   root 'welcome#index'
   post 'log_in', to: 'welcome#log_in'
+  delete 'log_out', to: 'welcome#log_out'
   # get 'sign_up', to: 'registrations#new'
   # post 'sign_up', to: 'registrations#create'
   # get 'sign_in', to: 'sessions#new'
   # post 'sign_in', to: 'sessions#create', as: 'log_in'
-  # delete 'logout', to: 'sessions#destroy'
   # get 'password', to: 'passwords#edit', as: 'edit_password'
   # patch 'password', to: 'passwords#update'
   # get 'password/reset', to: 'password_resets#new'

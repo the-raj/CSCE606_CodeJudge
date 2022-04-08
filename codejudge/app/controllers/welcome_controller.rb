@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
+  skip_before_action :require_user_logged_in!
+
   layout "login"
   
   def index
@@ -14,5 +16,11 @@ class WelcomeController < ApplicationController
     else
       redirect_to root_path, notice: "Incorrect username or password"
     end
+  end
+
+  def log_out
+    # deletes user session
+    session[:user_id] = nil
+    redirect_to root_path, notice: 'Logged Out'
   end
 end
