@@ -8,8 +8,10 @@ class User < ApplicationRecord
   has_many :assignments
   has_many :roles, through: :assignments
 
-  enum role: [:student, :ta, :instructor, :admin]
+  # enum role: [:student, :ta, :instructor, :admin]
   after_initialize :set_default_role, :if => :new_record?
+
+
 
   def set_default_role
     self.role ||= :student
@@ -19,4 +21,7 @@ class User < ApplicationRecord
     roles.any? { |r| r.name.underscore.to_sym == role }
   end
 
+  def role
+    self.roles.first.name
+  end
 end

@@ -8,6 +8,7 @@
         <th>Firstname</th>
         <th>Lastname</th>
         <th>Email</th>
+        <th>Role</th>
         <th colspan="2"></th>
       </tr>
     </thead>
@@ -18,6 +19,7 @@
         <td><%= user.firstname %></td>
         <td><%= user.lastname %></td>
         <td><%= user.email %></td>
+        <td><%= user.role %></td>
         <td><%= link_to 'Show', user %></td>
         <td>
           <%= link_to 'Destroy', user, method: :delete, confirm: 'Are you sure?' %>

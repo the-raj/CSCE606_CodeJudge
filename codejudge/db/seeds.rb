@@ -10,21 +10,31 @@
 
 require 'faker'
 
+#TEST ROLES
+role_admin = Role.create(name: "admin")
+role_instructor = Role.create(name: "instructor")
+role_ta = Role.create(name: "ta")
+role_student = Role.create(name: "student")
+
 #TEST USERS
 
-User.create(username: "admin", password: "admin", firstname: "admin", lastname: "admin", email: "admin@admin.com")
-User.create(username: "testuser", password: "password", firstname: "Test", lastname: "User", email: "testuser@example.com")
-User.create(username: "testinstructor", password: "password", firstname: "Test", lastname: "Instructor", email: "testinstructor@example.com")
-User.create(username: "testTA", password: "password", firstname: "Test", lastname: "TA", email: "testTA@example.com") 
+admin = User.create(username: "admin", password: "admin", firstname: "admin", lastname: "admin", email: "admin@admin.com")
+admin.assignments.create(role: role_admin)
+instructor = User.create(username: "testinstructor", password: "password", firstname: "Test", lastname: "Instructor", email: "testinstructor@example.com")
+instructor.assignments.create(role: role_instructor)
+ta = User.create(username: "testTA", password: "password", firstname: "Test", lastname: "TA", email: "testTA@example.com")
+ta.assignments.create(role: role_ta)
+
 
 (1..50).each do |id|
-  User.create(
+  user = User.create(
     username: Faker::Creature::Animal.unique.name,
     password: Faker::Alphanumeric.alphanumeric(number: 10),
     firstname: Faker::Name.first_name,
     lastname: Faker::Name.last_name,
     email: Faker::Internet.email
   )
+  user.assignments.create(role: role_student)
 end
 
 #TEST PROBLEMS
