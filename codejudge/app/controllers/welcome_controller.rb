@@ -1,6 +1,4 @@
 class WelcomeController < ApplicationController
-  skip_before_action :require_user_logged_in!
-
   layout "login"
   
   def index
@@ -12,7 +10,7 @@ class WelcomeController < ApplicationController
     if user.present? && user.authenticate(params[:password])
     # sets up user.id sessions
       session[:user_id] = user.id
-      redirect_to users_path, notice: 'Logged in successfully'
+      redirect_to problems_path, notice: 'Logged in successfully'
     else
       redirect_to root_path, notice: "Incorrect username or password"
     end

@@ -13,15 +13,18 @@ class ProblemsController < ApplicationController
   # GET /problems/new
   def new
     @problem = Problem.new
+    authorize @problem
   end
 
   # GET /problems/1/edit
   def edit
+    authorize :problem
   end
 
   # POST /problems or /problems.json
   def create
     @problem = Problem.new(problem_params)
+    authorize @problem
 
     respond_to do |format|
       if @problem.save
@@ -36,6 +39,7 @@ class ProblemsController < ApplicationController
 
   # PATCH/PUT /problems/1 or /problems/1.json
   def update
+    authorize :problem
     respond_to do |format|
       if @problem.update(problem_params)
         format.html { redirect_to problem_url(@problem), notice: "Problem was successfully updated." }
@@ -49,6 +53,8 @@ class ProblemsController < ApplicationController
 
   # DELETE /problems/1 or /problems/1.json
   def destroy
+    authorize @problem
+    
     @problem.destroy
 
     respond_to do |format|
@@ -65,6 +71,6 @@ class ProblemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def problem_params
-      params.require(:problem).permit(:problem_text, :number_test_cases)
+      params.require(:problem).permit(:title, :body)
     end
 end

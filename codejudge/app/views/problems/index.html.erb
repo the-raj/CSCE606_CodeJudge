@@ -15,15 +15,19 @@
       <tr>
         <td><%= problem.title %></td>
         <td><%= link_to 'Show', problem %></td>
-        <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
-        <td>
-          <%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are
-          you sure?' } %>
-        </td>
+        <% if policy(:problem).new? %>
+          <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
+          <td>
+            <%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are
+            you sure?' } %>
+          </td>
+        <% end %>
       </tr>
       <% end %>
     </tbody>
   </table>
 </div>
 
-<%= link_to "New problem", new_problem_path %>
+<% if policy(:problem).new? %>
+  <%= link_to "New problem", new_problem_path %>
+<% end %>

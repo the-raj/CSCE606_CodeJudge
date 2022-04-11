@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :assignments
   has_many :roles, through: :assignments
 
-  # enum role: [:student, :ta, :instructor, :admin]
+  enum role: [:student, :ta, :instructor, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
 
@@ -22,6 +22,9 @@ class User < ApplicationRecord
   end
 
   def role
+    if self.roles.first.nil?
+      return nil
+    end
     self.roles.first.name
   end
 end

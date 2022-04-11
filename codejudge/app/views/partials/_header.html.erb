@@ -1,11 +1,13 @@
 <header class="header">
   <div class="header__content container">
     <div class="header__left">
-      <%= link_to "CodeJudge", root_path, id: "logo" %>
+      <%= link_to "CodeJudge", problems_path, id: "logo" %>
       <nav>
         <ul>
           <li><%= link_to "Problems", problems_path %></li>
-          <li><%= link_to "Users", users_path %></li>
+          <% if policy(:user).index? %>
+            <li><%= link_to "Users", users_path %></li>
+          <% end %>
         </ul>
       </nav>
     </div>

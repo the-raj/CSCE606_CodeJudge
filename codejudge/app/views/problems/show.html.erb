@@ -10,7 +10,11 @@
   <%= @problem.body %>
 </p>
 <div>
-  <%= link_to "Edit this problem", edit_problem_path(@problem) %> | 
+  <% if policy(:problem).edit? %>
+    <%= link_to "Edit this problem", edit_problem_path(@problem) %> | 
+  <% end %>  
   <%= link_to "Back to problems", problems_path %> 
-  <%= button_to "Destroy this problem", @problem, method: :delete %>
+  <% if policy(:problem).destroy? %>
+    <%= button_to "Destroy this problem", @problem, method: :delete %>
+  <% end %>
 </div>

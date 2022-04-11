@@ -8,6 +8,10 @@ class ProblemPolicy < ApplicationPolicy
 
   def create?
     user.role? :admin or user.role? :instructor or user.role? :ta 
+  end
+
+  def new?
+    user.role? :admin or user.role? :instructor or user.role? :ta 
   end 
 
   def destroy?
@@ -15,6 +19,10 @@ class ProblemPolicy < ApplicationPolicy
   end 
 
   def update?
+    user.role? :admin or user.role? :instructor or user.role? :ta 
+  end
+
+  def edit?
     user.role? :admin or user.role? :instructor or user.role? :ta 
   end 
 
