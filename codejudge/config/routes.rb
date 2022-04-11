@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'errors/forbidden'
 
   resources :users
+  resources :problems
   root 'welcome#index'
   post 'log_in', to: 'welcome#log_in'
   delete 'log_out', to: 'welcome#log_out'

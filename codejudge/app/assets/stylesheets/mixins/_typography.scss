@@ -195,3 +195,11 @@
     @include line-height($line-height-copy-small-md);
   }
 }
+
+@mixin font-size-label {
+  @include font-size($font-size-label-sm);
+
+  @include media-breakpoint-up(md) {
+    @include font-size($font-size-label-md);
+  }
+}

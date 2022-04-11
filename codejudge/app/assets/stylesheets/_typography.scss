@@ -95,3 +95,8 @@ strong,
 b {
   @include font-text-bold;
 }
+
+label {
+  @include font-size-label;
+  @include font-text-medium;
+}

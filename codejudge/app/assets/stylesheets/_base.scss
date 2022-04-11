@@ -31,22 +31,10 @@ body {
   flex-direction: column;
 }
 
+main {
+  margin: 40px 0 80px;
+}
+
 .footer {
   margin-top: auto;
-}
-
-body {
-  // background-color: $color-beige;
-}
-
-input {
-  border: 1px solid gray;
-  // border-radius: 2px;
-  padding: 0 10px;
-
-  &:focus {
-    outline: 0.5px solid black !important;
-    border: 0.5px solid black;
-    // box-shadow: 0 0 5px black;
-  }
 }

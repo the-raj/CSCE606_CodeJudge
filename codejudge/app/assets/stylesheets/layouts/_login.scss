@@ -18,24 +18,4 @@
   .subline {
     margin: 20px auto 50px;
   }
-
-  form {
-    display: flex;
-    flex-direction: column;
-
-    label {
-      font-size: 15px;
-      margin: 10px 0 5px;
-      text-transform: uppercase;
-    }
-
-    input {
-      height: 50px;
-      font-size: 15px;
-    }
-
-    button {
-      margin-top: 20px;
-    }
-  }
 }

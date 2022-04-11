@@ -15,5 +15,7 @@
   <%= @user.email %>
 </p>
 
-<%= link_to 'Back', users_path %>
-<%= button_to "Destroy this problem", @problem, method: :delete %>
+<div>
+  <%= link_to 'Back', users_path, :class => "button" %>
+</div>
+<%= button_to "Destroy this problem", @problem, method: :delete, :class => "button" %>
