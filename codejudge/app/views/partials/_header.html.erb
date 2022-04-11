@@ -4,15 +4,15 @@
       <%= link_to "CodeJudge", problems_path, id: "logo" %>
       <nav>
         <ul>
-          <li><%= link_to "Problems", problems_path %></li>
+          <li><%= link_to "Problems", problems_path, :class => active_link_class('problems') %></li>
           <% if policy(:user).index? %>
-            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "Users", users_path, :class => active_link_class('users') %></li>
           <% end %>
         </ul>
       </nav>
     </div>
     <div class="header__right">
-      <%= button_to 'Logout', log_out_path, method: :delete %>
+      <%= button_to 'Logout', log_out_path, method: :delete, :class => "button" %>
     </div>
   </div>
 </header>

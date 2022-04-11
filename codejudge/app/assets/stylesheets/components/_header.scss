@@ -59,6 +59,15 @@
         opacity: 1;
       }
     }
+
+    &.active {
+      @include theme(color, header-link-hover);
+
+      &::after {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
   }
 }
 

@@ -9,4 +9,8 @@ module ApplicationHelper
     end
     raw doc
   end
+  
+  def active_link_class(link_path)
+    params[:controller] == link_path ? "active" : ""
+  end
 end
