@@ -1,9 +1,10 @@
 
 Rails.application.routes.draw do
   resources :problems
-  get 'errors/not_found'
 
+  get 'errors/not_found'
   get 'errors/internal_server_error'
+  get 'errors/forbidden'
 
   resources :users
   root 'welcome#index'
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   # get 'password/reset/edit', to: 'password_resets#edit'
   # patch 'password/reset/edit', to: 'password_resets#update'
 
+  match "/403", to: "errors#forbidden", via: :all
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
 end

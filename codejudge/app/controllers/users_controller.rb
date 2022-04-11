@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    p params[:notice]
     @users = User.all
+    authorize :user, :index?
   end
 
   # GET /users/1 or /users/1.json

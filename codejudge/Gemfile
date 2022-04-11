@@ -51,7 +51,11 @@ gem "sassc-rails"
 # Using bootsrap's grid system
 gem 'bootstrap', '~> 5.1.3'
 
+#Generates fake data for testing
 gem 'faker'
+
+#Security policy manager
+gem 'pundit'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
