@@ -38,14 +38,19 @@ WORKDIR /code
 
 # Copy over local gemfile and lockfile
 COPY Gemfile* /code
+
 # Run bundle install to install the Ruby dependencies.
-RUN bundle install 
+RUN bundle install
 
 # Copy all the application's files into the /code directory.
 COPY . /code
 
 # Precomplile
 RUN RAILS_ENV=production bundle exec rake assets:precompile
+
+# Copy entrypoint file to remove already existing server.pid file
+RUN ["chmod", "+x", "/code/entrypoint.sh"]
+ENTRYPOINT [ "sh", "/code/entrypoint.sh" ]
 
 # Set "rails server -b 0.0.0.0" as the command to run when this container starts.
 CMD ["rails", "server", "-b", "0.0.0.0"]
