@@ -3,7 +3,7 @@
   @include theme(color, copy-secondary);
   cursor: pointer;
   display: inline-block;
-  // min-width: 80px;
+  min-width: 80px;
   height: 45px;
   line-height: 45px;
   padding: 0 10px;
@@ -13,6 +13,7 @@
   // background-color: $color-black;
   // color: $color-white;
   font-size: 15px;
+  transition: background-color 0.2s ease-out; 
 
   &:hover {
     @include theme(background-color, button-background-hover);
