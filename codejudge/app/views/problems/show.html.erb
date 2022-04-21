@@ -9,9 +9,28 @@
   <strong>Description:</strong>
   <%= @problem.body %>
 </p>
+
+<h3>Testcases</h3>
+<% @problem.test_cases.each do |test_case| %>
+  <div class="col-12">
+    <div class="test-card">
+      <p>
+        <strong>Input:</strong> 
+        <% if test_case.input == "" %>
+          No Input specified  
+        <% else %>  
+          <%= test_case.input %>
+        <% end %>
+      </p>
+      <p>
+        <strong>Output:</strong> <%= test_case.output %>
+      </p>
+    </div>
+  </div>
+<% end %>
 <div>
   <% if policy(:problem).edit? %>
-    <%= link_to "Edit this problem", edit_problem_path(@problem), :class => "button" %> | 
+    <%= link_to "Edit this problem", edit_problem_path(@problem), :class => "button" %>
   <% end %>  
   <%= link_to "Back to problems", problems_path, :class => "button" %> 
   <% if policy(:problem).destroy? %>
