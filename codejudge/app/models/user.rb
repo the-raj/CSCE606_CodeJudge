@@ -14,11 +14,11 @@ class User < ApplicationRecord
 
 
   def set_default_role
-    self.role ||= :student
+    self.roles << Role.find_by_name(:student)
   end
 
   def role?(role)
-    roles.any? { |r| r.name.underscore.to_sym == role }
+    self.roles.any? { |r| r.name.underscore.to_sym == role }
   end
 
   def role

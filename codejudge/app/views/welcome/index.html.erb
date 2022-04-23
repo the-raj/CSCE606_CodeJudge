@@ -1,13 +1,11 @@
 <% content_for :title, "Login" %>
-<% content_for :login_content do %>
-  <h1>Login</h1>
-  <h2 class="subline">Sign in to continue</h2>
-  <%= form_tag(log_in_path, :id => "login_form", :class => "form-login", :method => :post) do |form| %>
-    <%= label_tag "username", "Username" %>
-    <%= text_field_tag "username" %>
-    <%= label_tag "password", "Password" %>
-    <%= password_field_tag "password" %>
-    <%= button_tag "log in", :id => "login_btn", :class => "button" %>
-  <% end %>
-  <p id="notice"><%= notice %></p>
+<h1>Login</h1>
+<h2 class="subline">Sign in to continue or <%= link_to "Register", register_path %></h2>
+<%= form_tag(log_in_path, :id => "login_form", :class => "form-login", :method => :post) do |form| %>
+  <%= label_tag "username", "Username" %>
+  <%= text_field_tag "username" %>
+  <%= label_tag "password", "Password" %>
+  <%= password_field_tag "password" %>
+  <%= button_tag "log in", :id => "login_btn", :class => "button" %>
 <% end %>
+<p id="notice"><%= notice %></p>

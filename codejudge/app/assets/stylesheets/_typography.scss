@@ -13,6 +13,11 @@ h4,
 p {
   text-align: left;
   text-align-last: left;
+
+  a {
+    font-size: inherit;
+    text-decoration: underline;
+  }
 }
 
 h1 {
@@ -62,10 +67,6 @@ p {
 
   hyphens: none;
   margin-bottom: $margin-copy;
-
-  a {
-    text-decoration: underline;
-  }
 }
 
 .small {

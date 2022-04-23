@@ -1,0 +1,21 @@
+<% content_for :title, "Register" %>
+<h1>Register</h1>
+<h2 class="subline">
+  Already registered? <%= link_to "Login", root_path %>
+</h2>
+<%= form_with(:model => @user, :url => register_path, :scope => :user, :id => "register_form", :class => "form-register", :method => :post) do |form| %>
+  <%= form.label :firstname, "Firstname" %>
+  <%= form.text_field :firstname %>
+  <%= form.label :lastname, "Lastname" %>
+  <%= form.text_field :lastname %>
+  <%= form.label :email, "Email" %>
+  <%= form.text_field :email %>
+  <%= form.label :username, "Username" %>
+  <%= form.text_field :username %>
+  <%= form.label :password, "Password" %>
+  <%= form.text_field :password %>
+  <%= form.label :password_confirmation, "Repeat Password" %>
+  <%= form.text_field :password_confirmation %>
+  <%= form.button "sign up", :type => "submit", :id => "register_btn", :class => "button" %>
+<% end %>
+<p id="notice"><%= notice %></p>

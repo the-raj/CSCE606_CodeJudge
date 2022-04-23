@@ -36,7 +36,6 @@ ta.assignments.create(role: role_student)
     lastname: Faker::Name.last_name,
     email: Faker::Internet.email
   )
-  user.assignments.create(role: role_student)
 end
 
 #TEST PROBLEMS

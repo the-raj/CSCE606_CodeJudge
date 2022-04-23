@@ -1,6 +1,4 @@
 class WelcomeController < ApplicationController
-  layout "login"
-  
   def index
     unless current_user.nil?
       redirect_to problems_path
