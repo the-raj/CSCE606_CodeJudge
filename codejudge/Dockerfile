@@ -15,7 +15,7 @@ RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/so
 RUN apt-get update -qq
 
 # install chrome + yarn + psql
-RUN apt-get install -y google-chrome-stable yarn postgresql-client
+RUN apt-get install -y google-chrome-stable yarn postgresql-client nano
 
 # Run yarn install to install JavaScript dependencies.
 RUN yarn install --check-files

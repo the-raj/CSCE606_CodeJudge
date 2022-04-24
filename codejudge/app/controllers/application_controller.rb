@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
   include Pundit::Authorization
 
   rescue_from Pundit::NotAuthorizedError, with: :require_user_logged_in!

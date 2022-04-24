@@ -8,4 +8,5 @@
   <%= password_field_tag "password" %>
   <%= button_tag "log in", :id => "login_btn", :class => "button" %>
 <% end %>
+<%= google_sign_in_button 'Sign in with my Google account', proceed_to: create_log_in_url, data: {turbo: "false"} %>
 <p id="notice"><%= notice %></p>

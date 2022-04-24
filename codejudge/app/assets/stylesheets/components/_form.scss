@@ -9,9 +9,9 @@ form {
   label {
     margin: 18px 0 10px;
 
-    &:first-of-type {
-      margin-top: 0;
-    }
+    // &:first-child {
+    //   margin-top: 0;
+    // }
   }
 
   input,
@@ -43,6 +43,13 @@ form {
     width: 90%;
     min-width: 350px;
     height: 250px;
+  }
+
+  .field_with_errors {
+    input {
+      @include theme(border, error, 1px solid);
+      width: 100%;
+    }
   }
 }
 

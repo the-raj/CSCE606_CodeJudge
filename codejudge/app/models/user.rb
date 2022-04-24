@@ -1,16 +1,27 @@
 class User < ApplicationRecord
+  include BCrypt
 
-  # adds virtual attributes for authentication
-  has_secure_password
-  # validates email
-  validates :email, presence: true
+  attr_accessor :password, :password_confirmation
 
-  has_many :assignments
+  validates :password, length: (6..18), confirmation: true, unless: :third_party_account?
+  validates :password_confirmation, length: (6..18), unless: :third_party_account?
+
+  def password=(password)
+    @password = password
+    self.password_digest = Password.create(password)
+  end
+
+  def authenticate(password)
+    password.present? && self.password_digest.present? && Password.new(self.password_digest) == password
+  end
+
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :username, presence: true, uniqueness: true, length: (4..15)
+  validates :email, presence: true, email: true, uniqueness: true
+  has_many :assignments, dependent: :destroy
   has_many :roles, through: :assignments
-
-  enum role: [:student, :ta, :instructor, :admin]
   after_initialize :set_default_role, :if => :new_record?
-
 
 
   def set_default_role
@@ -26,5 +37,10 @@ class User < ApplicationRecord
       return nil
     end
     self.roles.first.name
+  end
+
+  private
+  def third_party_account?
+    self.google_id
   end
 end

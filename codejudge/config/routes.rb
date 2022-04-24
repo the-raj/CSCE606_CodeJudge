@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   resources :problems
   root 'welcome#index'
   post 'log_in', to: 'welcome#log_in'
+  get 'log_in/create', to: 'welcome#log_in', as: :create_log_in
   delete 'log_out', to: 'welcome#log_out'
   get 'register', to: 'registrations#new'
   post 'register', to: 'registrations#create'
+  get 'register/create', to: 'registrations#create', as: :create_register
   # get 'sign_in', to: 'sessions#new'
   # post 'sign_in', to: 'sessions#create', as: 'log_in'
   # get 'password', to: 'passwords#edit', as: 'edit_password'

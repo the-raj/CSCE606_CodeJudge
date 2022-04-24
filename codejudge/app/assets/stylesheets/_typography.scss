@@ -75,6 +75,10 @@ p {
   margin-bottom: $margin-copy-small;
 }
 
+.error {
+  @include font-size-form-error;
+}
+
 .subline {
   @include font-size-subline;
   @include font-text-regular;
