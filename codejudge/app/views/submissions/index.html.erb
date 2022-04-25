@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Recent Submissions</h1>
+
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Submissions</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @submissions.each do |submission| %>
+      <tr>
+        <td><%= submission.filename %></td>
+        <td><%= link_to 'Show', submission %></td>
+        <% if policy(:problem).new? %>
+          <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
+          <td>
+            <%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are
+            you sure?' } %>
+          </td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% if policy(:problem).new? %>
+  <%= link_to "New Submission", new_submission_path, :class => "button" %>
+<% end %>
