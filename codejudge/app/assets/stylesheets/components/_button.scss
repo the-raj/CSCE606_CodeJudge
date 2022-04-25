@@ -1,8 +1,9 @@
 .button {
   @include theme(background-color, button-background);
   @include theme(color, copy-secondary);
-  cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   min-width: 80px;
   height: 45px;
   line-height: 45px;
@@ -17,5 +18,23 @@
 
   &:hover {
     @include theme(background-color, button-background-hover);
+    cursor: pointer;
+  }
+
+  &--google {
+    @include theme(background-color, background);
+    @include theme(color, copy-primary);
+    @include theme(border, input-outline, 1px solid);
+    // width: 190px;
+    height: 45px;
+    line-height: 45px;
+    white-space: nowrap;
+    border: 1px solid gray;
+  
+    &:hover {
+      @include theme(background-color, background);
+      cursor: pointer;
+    }
   }
 }
+

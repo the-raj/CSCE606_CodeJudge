@@ -4,16 +4,16 @@ class WelcomeController < ApplicationController
       redirect_to problems_path
     end
 
-    if flash[:google_sign_in].nil?
-      return
-    end
+    # if flash[:google_sign_in].nil?
+    #   return
+    # end
 
-    if user = sign_in_with_google
-      puts user.attributes
-      redirect_to problems_path
-    else
-      redirect_to root_path, notice: 'authentication_failed'
-    end
+    # if user = sign_in_with_google
+    #   puts user.attributes
+    #   redirect_to problems_path
+    # else
+    #   redirect_to root_path, notice: 'authentication_failed'
+    # end
 
   end
 

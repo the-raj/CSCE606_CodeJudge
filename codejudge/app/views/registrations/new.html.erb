@@ -67,5 +67,7 @@
 
   <%= form.button "sign up", :type => "submit", :id => "register_btn", :class => "button" %>
 <% end %>
-<%= google_sign_in_button 'Sign up with my Google account', proceed_to: create_register_url, data: {turbo: "false"} %>
+<%= google_sign_in_button proceed_to: create_register_url, data: {turbo: "false"}, class: "button button--google" do %>
+  <%= embedded_svg 'google_logo' %> Sign up with Google
+<% end %>
 <p id="notice"><%= notice %></p>

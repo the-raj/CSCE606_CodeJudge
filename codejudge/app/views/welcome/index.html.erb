@@ -6,7 +6,9 @@
   <%= text_field_tag "username" %>
   <%= label_tag "password", "Password" %>
   <%= password_field_tag "password" %>
-  <%= button_tag "log in", :id => "login_btn", :class => "button" %>
+  <%= button_tag "sign in", :id => "login_btn", :class => "button" %>
 <% end %>
-<%= google_sign_in_button 'Sign in with my Google account', proceed_to: create_log_in_url, data: {turbo: "false"} %>
+<%= google_sign_in_button proceed_to: create_log_in_url, data: {turbo: "false"}, class: "button button--google" do %>
+  <%= embedded_svg 'google_logo' %> Sign in with Google
+<% end %>
 <p id="notice"><%= notice %></p>

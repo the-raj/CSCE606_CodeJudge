@@ -16,12 +16,12 @@ form {
 
   input,
   textarea {
+    @include theme(border, input-outline, 1px solid);
     padding: 10px 10px;
-    border: 1px solid gray;
 
     &:focus {
-      outline: 0.5px solid black !important;
-      border: 0.5px solid black;
+      @include theme(outline, input-outline-focus, 0.5px solid);
+      @include theme(border, input-outline-focus, 0.5px solid);
     }
   }
 
