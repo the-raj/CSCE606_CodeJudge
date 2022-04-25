@@ -10,6 +10,10 @@
   <%= @problem.body %>
 </p>
 <div>
+  <%= form_for @problem do |f| %>
+    File upload: <%= f.file_field :sourcecode %>
+  <% end %>
+  </br>
   <% if policy(:problem).edit? %>
     <%= link_to "Edit this problem", edit_problem_path(@problem), :class => "button" %> | 
   <% end %>  
