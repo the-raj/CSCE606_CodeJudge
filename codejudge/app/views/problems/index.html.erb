@@ -7,14 +7,13 @@
     <thead>
       <tr>
         <th>Title</th>
-        <th colspan="3"></th>
+        <th colspan="2"></th>
       </tr>
     </thead>
     <tbody>
       <% @problems.each do |problem| %>
       <tr>
-        <td><%= problem.title %></td>
-        <td><%= link_to 'Show', problem %></td>
+        <td><%=link_to problem.title, problem %></td>
         <% if policy(:problem).new? %>
           <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
           <td>
