@@ -2,6 +2,7 @@
 
 Given('the admin is on the login page') do
   @browser.navigate.to(@url)
+  sleep(2)
 end
 
 Given('the admin provides correct credentials') do
