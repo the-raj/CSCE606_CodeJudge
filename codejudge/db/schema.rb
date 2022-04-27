@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_26_210849) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_27_202833) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_26_210849) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.bigint "problem_id", null: false
+    t.text "code"
+    t.string "filename"
+    t.bigint "language_id"
+    t.index ["language_id"], name: "index_attempts_on_language_id"
     t.index ["problem_id"], name: "index_attempts_on_problem_id"
     t.index ["user_id"], name: "index_attempts_on_user_id"
   end
@@ -82,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_26_210849) do
 
   add_foreign_key "assignments", "roles"
   add_foreign_key "assignments", "users"
+  add_foreign_key "attempts", "languages"
   add_foreign_key "attempts", "problems"
   add_foreign_key "attempts", "users"
   add_foreign_key "problems", "users", column: "author_id"

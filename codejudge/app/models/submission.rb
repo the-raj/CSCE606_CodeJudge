@@ -1,2 +1,0 @@
-class Submission < ApplicationRecord
-end

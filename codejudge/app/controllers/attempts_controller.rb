@@ -1,4 +1,4 @@
-class SubmissionsController < ApplicationController
+class AttemptsController < ApplicationController
 
   #Idea: for current problem, query test cases and send one
   #by one to API, return results, save to database as attempt
@@ -20,7 +20,7 @@ class SubmissionsController < ApplicationController
 
   #GET /submissions
   def index
-    @submissions = Submission.all
+    @attempts = Attempts.all
   end
 
   #GET /submissions/1
@@ -29,7 +29,7 @@ class SubmissionsController < ApplicationController
 
   #GET /submissions/new
   def new
-    @submission = Submission.new
+    @attempt = Attempt.new
   end
 
   #GET /submissions/1/edit
@@ -38,7 +38,7 @@ class SubmissionsController < ApplicationController
 
   #POST /submissions
   def create
-    @submission = Submission.new(submission_params)
+    @attempt = Attempt.new(attempt_params)
   end
 
   def grade
