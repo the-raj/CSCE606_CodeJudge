@@ -70,6 +70,14 @@ heroku container:push web
 heroku container:release web
 ```
 
+## Useful Commands
+To upload Codcov results first run the tests and then run
+
+```sh
+./codecov -f coverage/cucumber/codecov-result.json
+```
+
+
 ## Iterations
 
 - [Iteration 0](https://github.com/the-raj/CSCE606_CodeJudge/blob/master/documentation/Spring2022/i0.tar)
