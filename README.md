@@ -2,6 +2,8 @@
 
 ## CSCE 606: Software Engineering Spring 2022 Course Project
 
+[![codecov](https://codecov.io/gh/the-raj/CSCE606_CodeJudge/branch/master/graph/badge.svg?token=D2208TK6ZW)](https://codecov.io/gh/the-raj/CSCE606_CodeJudge)
+
 ### Team members
 
 - [Karthik Mohan Raj](https://www.linkedin.com/in/the-raj)
@@ -19,8 +21,6 @@
 - [PivotalTracker](https://www.pivotaltracker.com/n/projects/2555182)
 - [Heroku Dashboard](https://dashboard.heroku.com/apps/csce606-codejudge)
 - [Heroku App](https://csce606-codejudge.herokuapp.com)
-- [Cucumber Dashboard](https://studio.cucumber.io/projects/317601)
--
 
 ### Installation instructions
 
@@ -69,6 +69,14 @@ To push to heroku
 heroku container:push web
 heroku container:release web
 ```
+
+## Useful Commands
+To upload Codcov results first run the tests and then run
+
+```sh
+./codecov -f coverage/cucumber/codecov-result.json
+```
+
 
 ## Iterations
 

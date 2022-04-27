@@ -9,19 +9,19 @@ form {
   label {
     margin: 18px 0 10px;
 
-    &:first-of-type {
-      margin-top: 0;
-    }
+    // &:first-child {
+    //   margin-top: 0;
+    // }
   }
 
   input,
   textarea {
+    @include theme(border, input-outline, 1px solid);
     padding: 10px 10px;
-    border: 1px solid gray;
 
     &:focus {
-      outline: 0.5px solid black !important;
-      border: 0.5px solid black;
+      @include theme(outline, input-outline-focus, 0.5px solid);
+      @include theme(border, input-outline-focus, 0.5px solid);
     }
   }
 
@@ -44,9 +44,17 @@ form {
     min-width: 350px;
     height: 250px;
   }
+
+  .field_with_errors {
+    input {
+      @include theme(border, error, 1px solid);
+      width: 100%;
+    }
+  }
 }
 
-.form-login {
+.form-login,
+.form-register {
   display: flex;
   flex-direction: column;
 

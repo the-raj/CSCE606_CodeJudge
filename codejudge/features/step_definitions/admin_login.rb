@@ -2,6 +2,7 @@
 
 Given('the admin is on the login page') do
   @browser.navigate.to(@url)
+  sleep(2)
 end
 
 Given('the admin provides correct credentials') do
@@ -25,4 +26,10 @@ end
 
 Then('they should get a negative feedback') do
   raise "Fail" if @browser.find_element(:id, "notice").text != "Incorrect username or password"
-end 
+end
+
+Then('they can log out') do
+  @browser.find_element(:id, "logout_btn").click()
+  sleep(1)
+  raise "Fail" if @browser.find_element(:id, "notice").text != "Logged Out"
+end

@@ -6,26 +6,58 @@
   table {
     width: 100%;
 
-    th {
-      // white-space: normal;
-      text-align: left;
-      @include font-text-bold;
-      @include font-size(18px);
+    thead {
+      tr {
+        th {
+          // white-space: normal;
+          padding: 0.5em 0;
+          text-align: left;
+          @include font-text-bold;
+          @include font-size(18px);
+        }
+      }
     }
 
-    tr {
-      @include theme(background-color, table-row-primary);
+    tbody {
+      tr {
+        @include theme(background-color, table-row-background-primary);
+        transition: background-color 0.1s ease-out, color 0.1s ease-out;
 
-      &:nth-child(even) {
-        @include theme(background-color, table-row-secondary);
+        &:hover {
+          @include theme(background-color, table-row-background-hover);
+          @include theme(color, table-row-color-hover);
+        }
+
+        &:nth-child(even) {
+          @include theme(background-color, table-row-background-secondary);
+
+          &:hover {
+            @include theme(background-color, table-row-background-hover)
+          }
+        }
       }
     }
 
     th,
     td {
-      padding: 0.5em;
       min-width: 50px;
-      border-bottom: 1px solid #d0d0d0;
+      @include theme(border-bottom, table-border, 1px solid);
+    }
+
+    td {
+      &:hover {
+        border-bottom: 1px solid #d0d0d0;
+
+        > * {
+          transform: translateX(10px);
+        }
+      }
+
+      > a, span {
+        display: block;
+        padding: 0.5em;
+        transition: transform 0.2s ease-out;
+      }
     }
   }
 }
