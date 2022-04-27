@@ -15,5 +15,10 @@
   <%= f.text_field :title %>
   <%= f.label "Description" %>
   <%= f.text_area :body %>
+  <% @problem.test_cases.each_with_index do |test_case, index| %>
+    <h3><%= index %></h3>
+    
+  <% end %>
   <%= f.submit :class => "button"%>
+
 <% end %>
