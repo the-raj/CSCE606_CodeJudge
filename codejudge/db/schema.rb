@@ -82,6 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_202833) do
     t.string "firstname"
     t.string "lastname"
     t.string "password_digest"
+    t.string "google_id"
   end
 
   add_foreign_key "assignments", "roles"

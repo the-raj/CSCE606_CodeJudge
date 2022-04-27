@@ -17,15 +17,14 @@ role_ta = Role.create(name: "ta")
 role_student = Role.create(name: "student")
 
 #TEST USERS
-
-admin = User.create(username: "admin", password: "admin", firstname: "admin", lastname: "admin", email: "admin@example.com")
-admin.assignments.create(role: role_admin)
-instructor = User.create(username: "instructor", password: "instructor", firstname: "test", lastname: "instructor", email: "instructor@example.com")
-instructor.assignments.create(role: role_instructor)
-ta = User.create(username: "ta", password: "ta", firstname: "test", lastname: "ta", email: "ta@example.com")
-ta.assignments.create(role: role_ta)
-ta = User.create(username: "student", password: "password", firstname: "test", lastname: "student", email: "student@example.com")
-ta.assignments.create(role: role_student)
+admin = User.create!(username: "admin", password: "password", password_confirmation: "password", firstname: "admin", lastname: "admin", email: "admin@example.com")
+admin.assignments.create!(role: role_admin)
+instructor = User.create!(username: "instructor", password: "password", password_confirmation: "password", firstname: "test", lastname: "instructor", email: "instructor@example.com")
+instructor.assignments.create!(role: role_instructor)
+ta = User.create!(username: "teaching_asst", password: "password", password_confirmation: "password", firstname: "test", lastname: "ta", email: "ta@example.com")
+ta.assignments.create!(role: role_ta)
+ta = User.create!(username: "student", password: "password", password_confirmation: "password", firstname: "test", lastname: "student", email: "student@example.com")
+ta.assignments.create!(role: role_student)
 
 
 (1..50).each do |id|
@@ -36,15 +35,15 @@ ta.assignments.create(role: role_student)
     lastname: Faker::Name.last_name,
     email: Faker::Internet.email
   )
-  user.assignments.create(role: role_student)
 end
 
 #TEST PROBLEMS
-
-Problem.create(
+problem = Problem.create!(
   title: "Hello World",
   body: "Output should contain one line, containing the string 'Hello World!'."
 )
+problem.save
+problem.test_cases.create!(input: "", output: "Hello World")
 
 (1..50).each do |id|
   Problem.create(

@@ -1,0 +1,73 @@
+<% content_for :title, "Register" %>
+<h1>Register</h1>
+<h2 class="subline">
+  Already registered? <%= link_to "Login", root_path %>
+</h2>
+<%= form_with(:model => @user, :url => register_path, :id => "register_form", :class => "form-register", :method => :post, data: { turbo: false }) do |form| %>
+
+  <%= form.label :firstname, "Firstname" %>
+  <%= form.text_field :firstname %>
+  <% if @user.errors.include?(:firstname) %>
+    <div class="error">
+      <% @user.errors.full_messages_for(:firstname).each do |error_message| %>
+        <%= error_message %>.
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form.label :lastname, "Lastname" %>
+  <%= form.text_field :lastname %>
+  <% if @user.errors.include?(:lastname) %>
+    <div class="error">
+      <% @user.errors.full_messages_for(:lastname).each do |error_message| %>
+        <%= error_message %>.
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form.label :email, "Email" %>
+  <%= form.text_field :email %>
+  <% if @user.errors.include?(:email) %>
+    <div class="error">
+      <% @user.errors.full_messages_for(:email).each do |error_message| %>
+        <%= error_message %>.
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form.label :username, "Username" %>
+  <%= form.text_field :username %>
+  <% if @user.errors.include?(:username) %>
+    <div class="error">
+      <% @user.errors.full_messages_for(:username).each do |error_message| %>
+        <%= error_message %>.
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form.label :password, "Password" %>
+  <%= form.text_field :password %>
+  <% if @user.errors.include?(:password) %>
+    <div class="error">
+      <% @user.errors.full_messages_for(:password).each do |error_message| %>
+        <%= error_message %>.
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form.label :password_confirmation, "Repeat Password" %>
+  <%= form.text_field :password_confirmation %>
+  <% if @user.errors.include?(:password_confirmation) %>
+    <div class="error">
+      <% @user.errors.full_messages_for(:password_confirmation).each do |error_message| %>
+        <%= error_message %>.
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form.button "sign up", :type => "submit", :id => "register_btn", :class => "button" %>
+<% end %>
+<%= google_sign_in_button proceed_to: create_register_url, data: {turbo: "false"}, class: "button button--google" do %>
+  <%= embedded_svg 'google_logo' %> Sign up with Google
+<% end %>
+<p id="notice"><%= notice %></p>

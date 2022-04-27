@@ -1,0 +1,9 @@
+.test-card {
+  @include theme(background-color, test-card-background);
+
+  padding: 20px 10px;
+
+  > :last-child {
+    margin: 0;
+  }
+}

@@ -67,5 +67,5 @@
 }
 
 .error {
-  color: red;
+  @include theme(color, error);
 }
