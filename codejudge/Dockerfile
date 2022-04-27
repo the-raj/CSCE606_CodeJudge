@@ -32,6 +32,12 @@ RUN unzip $CHROMEDRIVER_DIR/chromedriver* -d $CHROMEDRIVER_DIR
 # Link chromedriver to /usr/local/bin
 RUN ln -s $CHROMEDRIVER_DIR/chromedriver /usr/local/bin/chromedriver
 
+# CodeCoverage
+ENV CI true
+ENV CODECOV_TOKEN 7bbfe139-fc76-4ba3-9e45-1ea968722cbb
+RUN curl -Os https://uploader.codecov.io/latest/linux/codecov
+RUN chmod +x codecov
+
 # Use a directory called /code in which to store this application's files. 
 # (The directory name is arbitrary and could have been anything.)
 WORKDIR /code
