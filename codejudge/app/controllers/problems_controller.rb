@@ -14,6 +14,7 @@ class ProblemsController < ApplicationController
   def new
     @problem = Problem.new
     authorize @problem
+    @test_cases = @problem.test_cases.build
   end
 
   # GET /problems/1/edit
@@ -71,6 +72,6 @@ class ProblemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def problem_params
-      params.require(:problem).permit(:title, :body)
+      params.require(:problem).permit(:title, :body, test_cases_attributes: [:input, :output])
     end
 end

@@ -1,4 +1,4 @@
-<%= form_for(problem) do |f| %>
+<%= form_for(problem, data: { turbo: false }) do |problem_form| %>
   <% if problem.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(problem.errors.count, "error") %> prohibited this problem from being saved:</h2>
@@ -11,14 +11,23 @@
     </div>
   <% end %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label "Description" %>
-  <%= f.text_area :body %>
-  <% @problem.test_cases.each_with_index do |test_case, index| %>
+  <%= problem_form.label :title %>
+  <%= problem_form.text_field :title %>
+  <%= problem_form.label "Description" %>
+  <%= problem_form.text_area :body %>
+
+  <!-- <% problem_form.fields_for :test_cases do |test_cases_form| %>
+    <%= render "test_case_fields", f: test_cases_form %>
+  <% end %> -->
+  <div>
+    <%= link_to_add_association "add test case", problem_form, :test_cases, class: "button", data: { turbo: false } %>
+  </div>
+  <!-- <% @problem.test_cases.each_with_index do |test_case, index| %>
     <h3><%= index %></h3>
     
-  <% end %>
-  <%= f.submit :class => "button"%>
+  <% end %> -->
+  <div>
+    <%= problem_form.submit :class => "button"%>
+  </div>
 
 <% end %>
