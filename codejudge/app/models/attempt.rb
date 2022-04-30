@@ -1,5 +1,5 @@
 class Attempt < ApplicationRecord
-  has_one :language
-  has_one :user
-  has_one :problem
+  belongs_to :language
+  belongs_to :user
+  belongs_to :problem
 end
