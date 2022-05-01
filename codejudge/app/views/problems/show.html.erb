@@ -29,11 +29,14 @@
   </div>
 <% end %>
 <div>
-  <%= form_for @problem do |f| %>
+  <%= form_for(Attempt.new) do |f| %>
+    <%= hidden_field_tag(:problem_id, @problem.id) %>
+    <%= f.select :language, @languages_list, :prompt => "Select Language" %>
     File upload: <%= f.file_field :sourcecode %>
+    <%= f.submit :class => "button"%>
   <% end %>
   </br>
-  
+
   <% if policy(:problem).edit? %>
     <%= link_to "Edit this problem", edit_problem_path(@problem), :class => "button" %>
   <% end %>  

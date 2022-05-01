@@ -1,8 +1,8 @@
 
 Rails.application.routes.draw do
+  resources :attempts
   resources :problems
 
-  resources :submissions
 
   get 'errors/not_found'
   get 'errors/internal_server_error'

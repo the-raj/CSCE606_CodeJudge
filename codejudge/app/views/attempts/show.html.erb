@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @attempt %>
+
+<div>
+  <%= link_to "Edit this attempt", edit_attempt_path(@attempt) %> |
+  <%= link_to "Back to attempts", attempts_path %>
+
+  <%= button_to "Destroy this attempt", @attempt, method: :delete %>
+</div>
