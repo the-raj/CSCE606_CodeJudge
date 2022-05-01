@@ -23,6 +23,7 @@ class AttemptsController < ApplicationController
   def create
     @attempt = Attempt.new(attempt_params)
 
+    @attempt.language_id = params[:language]
     @attempt.code = params[:sourcecode]
     @attempt.user_id = session[:user_id]
 

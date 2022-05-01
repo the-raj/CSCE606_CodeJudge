@@ -31,7 +31,10 @@
 <div>
   <%= form_for(Attempt.new) do |f| %>
     <%= hidden_field_tag(:problem_id, @problem.id) %>
+    <br></br><br></br>
     <%= f.select :language, @languages_list, :prompt => "Select Language" %>
+    <br></br>
+    <br></br>
     File upload: <%= f.file_field :sourcecode %>
     <%= f.submit :class => "button"%>
   <% end %>

@@ -1,5 +1,6 @@
 
 Rails.application.routes.draw do
+  resources :languages
   resources :attempts
   resources :problems
 
