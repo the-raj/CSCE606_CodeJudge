@@ -1,4 +1,7 @@
 class AttemptsController < ApplicationController
+
+  require 'rest-client'
+
   before_action :set_attempt, only: %i[ show edit update destroy ]
 
   # GET /attempts or /attempts.json
@@ -21,12 +24,17 @@ class AttemptsController < ApplicationController
 
   # POST /attempts or /attempts.json
   def create
-    @attempt = Attempt.new()
+    @attempt = Attempt.new
 
     @attempt.language_id = Language.all.where(name: params[:attempt][:language]).pick(:id)
-    @attempt.code = params[:attempt][:sourcecode]
+    @attempt.code = File.read(params[:attempt][:sourcecode])
     @attempt.user_id = session[:user_id]
     @attempt.problem_id = params[:problem_id]
+
+    @problem = Problem.where(id: :problem_id)
+
+    @testcases_array = @problem.joins(:test_cases)
+    puts(@testcases_array)
 
     respond_to do |format|
       if @attempt.save

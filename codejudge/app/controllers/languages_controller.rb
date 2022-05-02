@@ -19,12 +19,17 @@ class LanguagesController < ApplicationController
     response = JSON.parse(response)
     @language = Language.new
     response.each do |r|
-      Language.create(:url_name => r["url"], :name => r["name"])
+      puts(r["url"])
+      if Language.where(name: r["name"]).empty?
+        Language.create(:url_name => r["url"], :name => r["name"])
+      end
     end
+
   end
 
   # GET /languages/1/edit
   def edit
+
   end
 
   # POST /languages or /languages.json
@@ -73,6 +78,6 @@ class LanguagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def language_params
-      params.fetch(:language, {})
+      params.require(:language).permit(:name, :url_name, :extension)
     end
 end

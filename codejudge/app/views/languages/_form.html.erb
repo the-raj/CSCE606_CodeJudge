@@ -11,7 +11,14 @@
     </div>
   <% end %>
 
+  <%= form.label "Language Name"  %>
+  <%= form.text_field :name %>
+  <%= form.label "Extension" %>
+  <%= form.text_field :extension %>
+  <%= form.label "API URL" %>
+  <%= form.text_field :url_name %>
+
   <div>
-    <%= form.submit %>
+    <%= form.submit "Add Language", :class => "button" %>
   </div>
 <% end %>
