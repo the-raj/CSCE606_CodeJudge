@@ -3,8 +3,13 @@
 <%= render @attempt %>
 
 <div>
-  <%= link_to "Edit this attempt", edit_attempt_path(@attempt) %> |
+
   <%= link_to "Back to attempts", attempts_path %>
 
-  <%= button_to "Destroy this attempt", @attempt, method: :delete %>
+  <% if policy(:attempt).edit? %>
+    <%= link_to "Edit this attempt", edit_attempt_path(@attempt) %>
+  <% end %>
+  <% if policy(:attempt).destroy? %>
+    <%= button_to "Delete this attempt", @attempt, method: :delete %>
+  <% end %>
 </div>

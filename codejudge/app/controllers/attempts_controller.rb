@@ -21,11 +21,12 @@ class AttemptsController < ApplicationController
 
   # POST /attempts or /attempts.json
   def create
-    @attempt = Attempt.new(attempt_params)
+    @attempt = Attempt.new()
 
-    @attempt.language_id = params[:language]
-    @attempt.code = params[:sourcecode]
+    @attempt.language_id = Language.all.where(name: params[:attempt][:language]).pick(:id)
+    @attempt.code = params[:attempt][:sourcecode]
     @attempt.user_id = session[:user_id]
+    @attempt.problem_id = params[:problem_id]
 
     respond_to do |format|
       if @attempt.save
@@ -69,6 +70,6 @@ class AttemptsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def attempt_params
-      params.require(:attempt).permit(:code, :filename)
+      params.require(:attempt).permit(:code)
     end
 end

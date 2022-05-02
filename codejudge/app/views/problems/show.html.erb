@@ -35,8 +35,9 @@
     <%= f.select :language, @languages_list, :prompt => "Select Language" %>
     <br></br>
     <br></br>
+    <%= puts(:language) %>
     File upload: <%= f.file_field :sourcecode %>
-    <%= f.submit :class => "button"%>
+    <%= f.submit "Submit Code",:class => "button"%>
   <% end %>
   </br>
 

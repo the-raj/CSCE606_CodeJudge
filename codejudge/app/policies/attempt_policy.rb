@@ -5,4 +5,28 @@ class AttemptPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+
+  def create?
+    user.role? :admin or user.role? :instructor or user.role? :ta
+  end
+
+  def new?
+    user.role? :admin or user.role? :instructor or user.role? :ta
+  end
+
+  def destroy?
+    user.role? :admin or user.role? :instructor or user.role? :ta
+  end
+
+  def update?
+    user.role? :admin or user.role? :instructor or user.role? :ta
+  end
+
+  def edit?
+    user.role? :admin or user.role? :instructor or user.role? :ta
+  end
+
+  def index?
+    user.role? :admin or user.role? :instructor or user.role? :ta or user.role? :student
+  end
 end
