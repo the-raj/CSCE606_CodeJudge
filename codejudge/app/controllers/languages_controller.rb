@@ -6,7 +6,7 @@ class LanguagesController < ApplicationController
 
   # GET /languages or /languages.json
   def index
-    @languages = Language.all
+    @languages = Language.all.order(:name)
   end
 
   # GET /languages/1 or /languages/1.json
@@ -19,7 +19,6 @@ class LanguagesController < ApplicationController
     response = JSON.parse(response)
     @language = Language.new
     response.each do |r|
-      puts(r["url"])
       if Language.where(name: r["name"]).empty?
         Language.create(:url_name => r["url"], :name => r["name"])
       end
@@ -29,7 +28,6 @@ class LanguagesController < ApplicationController
 
   # GET /languages/1/edit
   def edit
-
   end
 
   # POST /languages or /languages.json
