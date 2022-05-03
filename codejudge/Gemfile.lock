@@ -129,6 +129,8 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     docile (1.4.0)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     email_validator (2.2.3)
       activemodel
     erubi (1.10.0)
@@ -148,6 +150,9 @@ GEM
       google-id-token (>= 1.4.0)
       oauth2 (>= 1.4.0)
       rails (>= 5.2.0)
+    http-accept (1.7.0)
+    http-cookie (1.0.4)
+      domain_name (~> 0.5)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.0.3)
@@ -193,6 +198,7 @@ GEM
       digest
       net-protocol
       timeout
+    netrc (0.11.0)
     nio4r (2.5.8)
     nokogiri (1.13.3-aarch64-linux)
       racc (~> 1.4)
@@ -211,6 +217,7 @@ GEM
       nio4r (~> 2.0)
     pundit (2.2.0)
       activesupport (>= 3.0.0)
+    pygments.rb (2.3.0)
     racc (1.6.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -245,6 +252,11 @@ GEM
     regexp_parser (2.2.1)
     reline (0.3.1)
       io-console (~> 0.5)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     rexml (3.2.5)
     rspec (3.11.0)
       rspec-core (~> 3.11.0)
@@ -299,6 +311,9 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8.1)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -335,7 +350,9 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   pundit
+  pygments.rb
   rails (~> 7.0.2, >= 7.0.2.3)
+  rest-client
   rspec
   sassc-rails
   selenium-webdriver

@@ -1,6 +1,8 @@
 class ProblemsController < ApplicationController
   before_action :set_problem, only: %i[ show edit update destroy ]
 
+  before_action :set_languages
+
   # GET /problems or /problems.json
   def index
     @problems = Problem.all
@@ -8,6 +10,7 @@ class ProblemsController < ApplicationController
 
   # GET /problems/1 or /problems/1.json
   def show
+    @languages_list = Language.pluck(:name)
   end
 
   # GET /problems/new
@@ -73,4 +76,5 @@ class ProblemsController < ApplicationController
     def problem_params
       params.require(:problem).permit(:title, :body)
     end
+
 end
