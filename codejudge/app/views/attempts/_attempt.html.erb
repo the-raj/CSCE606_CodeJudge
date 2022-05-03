@@ -1,11 +1,11 @@
 <div id="<%= dom_id attempt %>">
-  <p>
-    <strong>Code:</strong>
-    <%= attempt.code %>
 
-    <br></br>
-    <strong>Test Cases:</strong>
-
-  </p>
+  <strong>Code:</strong>
+  <br></br>
+  <% require 'pygments' %>
+  <%= Pygments.highlight(attempt.code, options: {encoding: 'utf-8'}).html_safe %>
+  <br></br>
+  <strong>Test Cases:</strong>
+  <br></br>
 
 </div>

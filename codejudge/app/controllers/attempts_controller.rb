@@ -1,6 +1,7 @@
 class AttemptsController < ApplicationController
 
   require 'rest-client'
+  require 'pygments'
 
   before_action :set_attempt, only: %i[ show edit update destroy ]
 
