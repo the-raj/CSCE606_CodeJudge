@@ -77,4 +77,7 @@ class ProblemsController < ApplicationController
       params.require(:problem).permit(:title, :body)
     end
 
+    def set_languages
+      @languages = ['Bash', 'C++', 'Python']
+    end
 end
