@@ -1,4 +1,6 @@
 .footer {
+  margin-top: auto;
+  
   section {
     @include theme(background-color, footer-background);
     display: flex;

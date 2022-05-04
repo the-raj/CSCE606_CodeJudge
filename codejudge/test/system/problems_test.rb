@@ -32,7 +32,7 @@ class ProblemsTest < ApplicationSystemTestCase
 
   test "should destroy Problem" do
     visit problem_url(@problem)
-    click_on "Destroy this problem", match: :first
+    click_on "Delete this problem", match: :first
 
     assert_text "Problem was successfully destroyed"
   end

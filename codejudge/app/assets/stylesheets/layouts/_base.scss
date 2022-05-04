@@ -1,3 +1,9 @@
 .layout {
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
+}
+
+main {
+  margin: 40px 0 80px;
 }

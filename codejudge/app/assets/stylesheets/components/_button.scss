@@ -1,18 +1,18 @@
 .button {
   @include theme(background-color, button-background);
-  @include theme(color, copy-secondary);
+  @include theme(color, button-copy);
+  @include font-text-bold;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   min-width: 80px;
   height: 45px;
   line-height: 45px;
-  padding: 0 10px;
+  padding: 0 15px;
   margin-bottom: 20px;
   text-align: center;
   border: none;
-  // background-color: $color-black;
-  // color: $color-white;
+  // border-radius: 2px;
   font-size: 15px;
   transition: background-color 0.2s ease-out; 
 
@@ -25,7 +25,6 @@
     @include theme(background-color, background);
     @include theme(color, copy-primary);
     @include theme(border, input-outline, 1px solid);
-    // width: 190px;
     height: 45px;
     line-height: 45px;
     white-space: nowrap;
@@ -34,6 +33,31 @@
     &:hover {
       @include theme(background-color, background);
       cursor: pointer;
+    }
+  }
+
+  &--delete {
+    @include theme(border, button-delete-background-hover, 3px solid);
+    @include theme(color, button-delete-copy);
+    @include theme(background-color, button-delete-background);
+    height: 55px;
+
+    &:hover {
+      @include theme(color, button-delete-copy-hover);
+      @include theme(background-color, button-delete-background-hover);
+    }
+  }
+
+  &--submit {
+    @include theme(border, button-submit-background-hover, 3px solid);
+    @include theme(color, button-submit-copy);
+    @include theme(background-color, button-submit-background);
+    height: 55px;
+    text-transform: uppercase;
+
+    &:hover {
+      @include theme(color, button-submit-copy-hover);
+      @include theme(background-color, button-submit-background-hover);
     }
   }
 }

@@ -1,0 +1,29 @@
+.link {
+  display: flex;
+  align-items: center;
+  @include font-size-link;
+
+  a {
+    display: flex;
+    align-items: center;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+  
+    svg, i {
+      margin-right: 5px;
+      color: inherit;
+      height: 1em;
+    }
+  }
+
+  &--back {
+    margin-bottom: 40px;
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}

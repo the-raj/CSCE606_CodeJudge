@@ -1,0 +1,8 @@
+<div class="link <%= classes if classes %>">
+  <%= link_to path do %>
+    <% if icon %>
+      <span><%= embedded_svg icon %></span>
+    <% end %>
+    <%= copy %>
+  <% end %>
+</div>

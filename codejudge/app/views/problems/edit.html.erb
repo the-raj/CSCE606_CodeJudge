@@ -1,7 +1,7 @@
-<h1>Edit problem</h1>
+<div class="col-12">
+  <%= render "partials/link", copy: "Back", path: :back, icon: "chevron-left", classes: "link--back" %>
+</div>
+
+<h1 class="col-12 col-md-6">Edit problem</h1>
 
 <%= render "form", problem: @problem %>
-
-<div>
-  <%= link_to "Back to problems", problems_path, :class => "button" %>
-</div>

@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Problems</h1>
-
-<div class="table">
+<% if policy(:problem).new? %>
+  <div class="col-12">
+    <%= link_to "New Problem", new_problem_path, :class => "button" %>
+  </div>
+<% end %>
+<div class="table col-12">
   <table>
     <thead>
       <tr>
@@ -17,7 +21,7 @@
         <% if policy(:problem).new? %>
           <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
           <td>
-            <%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are
+            <%= link_to 'Delete', problem, method: :delete, data: { confirm: 'Are
             you sure?' } %>
           </td>
         <% end %>
@@ -26,7 +30,3 @@
     </tbody>
   </table>
 </div>
-
-<% if policy(:problem).new? %>
-  <%= link_to "New problem", new_problem_path, :class => "button" %>
-<% end %>

@@ -1,5 +1,7 @@
-<h3>Test</h3>
-<%= f.label :input %>
-<%= f.text_field :input %>
-<%= f.label :output %>
-<%= f.text_field :output %>
+<div class="nested-fields test-case-card">
+  <%= f.label :input %>
+  <%= f.text_field :input %>
+  <%= f.label :output %>
+  <%= f.text_field :output %>
+  <%= link_to_remove_association "Remove Test Case", f, class: "button" %>
+</div>

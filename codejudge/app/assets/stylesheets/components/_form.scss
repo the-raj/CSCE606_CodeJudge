@@ -19,6 +19,7 @@ form {
     @include theme(border, input-outline, 1px solid);
     width: 100%;
     padding: 10px 10px;
+    margin-bottom: 30px;
 
     &:focus {
       @include theme(outline, input-outline-focus, 0.5px solid);
@@ -41,9 +42,9 @@ form {
   textarea {
     font-family: inherit;
     font-size: inherit;
-    resize: none;
-    min-width: 350px;
+    resize: vertical;
     height: 250px;
+    min-height: 50px;
   }
 
   .field_with_errors {
@@ -60,7 +61,7 @@ form {
 
   label {
     font-size: 15px;
-    margin: 10px 0 5px;
+    margin: 0 0 5px;
     text-transform: uppercase;
   }
 
@@ -68,9 +69,10 @@ form {
     display: block;
     height: 50px;
     font-size: 15px;
+    margin-bottom: 20px;
   }
 
   button {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 }

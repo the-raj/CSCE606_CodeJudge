@@ -63,7 +63,7 @@ a {
 
 p {
   @include font-size-copy;
-  @include font-text-light;
+  @include font-text-regular;
 
   hyphens: none;
   margin-bottom: $margin-copy;

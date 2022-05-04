@@ -141,6 +141,8 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.2)
     ffi (1.15.5)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     google-id-token (1.4.2)
@@ -331,6 +333,7 @@ DEPENDENCIES
   debug
   email_validator
   faker
+  font-awesome-rails
   google_sign_in
   importmap-rails
   jbuilder
