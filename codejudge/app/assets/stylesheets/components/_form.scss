@@ -2,7 +2,8 @@ form {
 
   label,
   input,
-  textarea {
+  textarea,
+  select {
     display: block;
   }
 
@@ -15,7 +16,8 @@ form {
   }
 
   input,
-  textarea {
+  textarea,
+  select {
     @include theme(border, input-outline, 1px solid);
     width: 100%;
     padding: 10px 10px;
@@ -37,6 +39,11 @@ form {
       width: unset;
       margin-top: 20px;
     }
+
+    &[type=file] {
+      font-family: inherit;
+      font-size: inherit;
+    }
   }
 
   textarea {
@@ -45,6 +52,12 @@ form {
     resize: vertical;
     height: 250px;
     min-height: 50px;
+  }
+
+  input[type=file] {
+    border: none;
+    padding: 0;
+    margin-top: 10px;
   }
 
   .field_with_errors {
