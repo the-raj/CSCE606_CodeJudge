@@ -2,10 +2,6 @@
 
 <h1>Attempts</h1>
 
-<div class="col-12">
-  <%= link_to "New Attempt", new_attempt_path, class: "button" %>
-</div>
-
 <div id="attempts" class="col-12">
   <% @attempts.each do |attempt| %>
     <%= render attempt %>
