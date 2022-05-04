@@ -16,4 +16,12 @@ module ApplicationHelper
   def active_link_class(link_path)
     params[:controller] == link_path ? "active" : ""
   end
+
+  def format_code(code, language)
+    raw Pygments.highlight(code, options: {encoding: 'utf-8'})
+  end
+
+  def format_code_css(css_class, style:)
+    Pygments.css(css_class, style: style)
+  end
 end

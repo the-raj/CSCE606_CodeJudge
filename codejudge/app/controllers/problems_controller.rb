@@ -11,6 +11,7 @@ class ProblemsController < ApplicationController
   # GET /problems/1 or /problems/1.json
   def show
     @languages_list = Language.pluck(:name)
+    @attempt = Attempt.new
   end
 
   # GET /problems/new

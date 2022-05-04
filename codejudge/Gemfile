@@ -60,16 +60,16 @@ gem 'bootstrap', '~> 5.1.3'
 # Use Font Awesome for icons
 gem "font-awesome-rails"
 
-#Generates fake data for testing
+# Generates fake data for testing
 gem 'faker'
 
-#Security policy manager
+# Security policy manager
 gem 'pundit'
 
-#HTTP Requests (for glot.io)
+# HTTP Requests (for glot.io)
 gem 'rest-client'
 
-#Code syntax highlighting
+# Code syntax highlighting
 gem 'pygments.rb'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]

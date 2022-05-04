@@ -1,11 +1,12 @@
-<div id="<%= dom_id attempt %>">
+<% content_for :head do %>
+  <style><%= format_code_css('.highlight', style: "xcode") %></style>
+<% end %>
 
+<div id="<%= dom_id attempt %>">
   <h3>Code:</h3>
-  <% require 'pygments' %>
   <div class="code-preview">
-    <%= Pygments.highlight(attempt.code, options: {encoding: 'utf-8'}).html_safe %>
+    <%= format_code(attempt.code, attempt.language.name) %>
   </div>
   <br></br>
   <h3>Test Cases:</h3>
-
 </div>

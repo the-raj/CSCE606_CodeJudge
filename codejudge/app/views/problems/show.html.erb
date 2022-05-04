@@ -24,7 +24,7 @@
   <% end %>
 </section>
 <section id ="file-upload">
-  <%= form_for(Attempt.new) do |f| %>
+  <%= form_for(@attempt) do |f| %>
     <%= hidden_field_tag(:problem_id, @problem.id) %>
     <%= f.select :language, @languages_list, :prompt => "Select Language" %>
     <%= f.label :sourcecode, "File upload:" %>
