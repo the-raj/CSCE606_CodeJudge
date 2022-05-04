@@ -45,7 +45,16 @@ problem = Problem.create!(
 problem.save
 problem.test_cases.create!(input: "", output: "Hello World")
 
-(1..50).each do |id|
+fib = Problem.create!(
+  title: "Fibonacci Sequence",
+  body: "Given a number n, print the nth Fibonacci number."
+)
+
+fib.test_cases.create!(input: "2", output: "1", example: false)
+fib.test_cases.create!(input: "9", output: "34", example: false)
+fib.test_cases.create!(input: "1", output: "1", example: false)
+
+(1..10).each do |id|
   Problem.create(
     title: Faker::Lorem.sentence(word_count: 3),
     body: Faker::Lorem.paragraph(sentence_count: 5)

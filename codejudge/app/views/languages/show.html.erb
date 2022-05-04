@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @language %>
+
+<p>
+  <strong>Language</strong>
+  <%= @language.name %>
+</p>
+
+<p>
+  <strong>Extension</strong>
+  <%= @language.extension %>
+</p>
+
+<p>
+  <strong>API URL</strong>
+  <%= @language.url_name %>
+</p>
+
+<div>
+  <%= button_to "Edit this language", edit_language_path(@language), method: "get"  %>
+  <br></br>
+  <%= button_to "Remove this language", language_path(@language), method: :delete, form: { data: { turbo_confirm: 'Are you sure you want to delete this language?' }} %>
+  <br></br>
+  <%= link_to "Back to languages", languages_path %>
+</div>

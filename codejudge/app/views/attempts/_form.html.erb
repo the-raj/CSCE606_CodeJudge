@@ -1,0 +1,27 @@
+<%= form_with(model: attempt) do |form| %>
+  <% if attempt.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(attempt.errors.count, "error") %> prohibited this attempt from being saved:</h2>
+
+      <ul>
+        <% attempt.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :code, style: "display: block" %>
+    <%= form.text_area :code %>
+  </div>
+
+  <div>
+    <%= form.label :filename, style: "display: block" %>
+    <%= form.text_field :filename %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

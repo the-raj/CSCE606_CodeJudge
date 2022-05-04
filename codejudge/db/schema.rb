@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_23_163725) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_02_000828) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_163725) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.bigint "problem_id", null: false
+    t.text "code"
+    t.bigint "language_id"
+    t.index ["language_id"], name: "index_attempts_on_language_id"
     t.index ["problem_id"], name: "index_attempts_on_problem_id"
     t.index ["user_id"], name: "index_attempts_on_user_id"
   end
@@ -35,6 +38,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_163725) do
   create_table "groups", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+    t.string "extension"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "url_name"
   end
 
   create_table "problems", force: :cascade do |t|
@@ -76,6 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_163725) do
 
   add_foreign_key "assignments", "roles"
   add_foreign_key "assignments", "users"
+  add_foreign_key "attempts", "languages"
   add_foreign_key "attempts", "problems"
   add_foreign_key "attempts", "users"
   add_foreign_key "problems", "users", column: "author_id"

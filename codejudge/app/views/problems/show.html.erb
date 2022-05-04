@@ -22,6 +22,17 @@
   <% else %>
     <p class="col-12">No test cases were specified for this problem.</p>
   <% end %>
+
+  <%= form_for(Attempt.new) do |f| %>
+    <%= hidden_field_tag(:problem_id, @problem.id) %>
+    <br></br><br></br>
+    <%= f.select :language, @languages_list, :prompt => "Select Language" %>
+    <br></br>
+    <br></br>
+    <%= puts(:language) %>
+    File upload: <%= f.file_field :sourcecode %>
+    <%= f.submit "Submit Code",:class => "button"%>
+  <% end %>
 </section>
 <div class="nav-options">
   <% if policy(:problem).edit? %>
