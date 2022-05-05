@@ -32,10 +32,13 @@ class AttemptsController < ApplicationController
     @attempt.user_id = session[:user_id]
     @attempt.problem_id = params[:problem_id]
 
-    @problem = Problem.where(id: :problem_id)
+    @testcases_query = TestCase.left_outer_joins(:problem).where(problem_id: @attempt.problem_id)
 
-    @testcases_array = @problem.joins(:test_cases)
-    puts(@testcases_array)
+    @testcases = {}
+
+    @testcases_query.each do |item|
+      @testcases.store(item.input, item.output)
+    end
 
     respond_to do |format|
       if @attempt.save
