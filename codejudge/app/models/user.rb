@@ -22,6 +22,7 @@ class User < ApplicationRecord
   has_many :assignments, dependent: :destroy
   has_many :roles, through: :assignments
   accepts_nested_attributes_for :roles
+  has_many :attempts
   after_initialize :set_default_role, :if => :new_record?
 
 
