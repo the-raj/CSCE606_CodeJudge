@@ -34,9 +34,9 @@
 </section>
 <div class="nav-options">
   <% if policy(:problem).edit? %>
-    <%= link_to "Edit this problem", edit_problem_path(@problem), :class => "button" %>
+    <%= link_to "Edit this Problem", edit_problem_path(@problem), :class => "button" %>
   <% end %> 
   <% if policy(:problem).destroy? %>
-    <%= button_to "Delete this problem", @problem, method: :delete, :class => "button button--delete" %>
+    <%= button_to "Delete this Problem", @problem, method: :delete, :class => "button button--delete" %>
   <% end %>
 </div>

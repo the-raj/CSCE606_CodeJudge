@@ -1,5 +1,9 @@
 <p id="notice" class="success"><%= notice %></p>
 
+<div class="col-12">
+  <%= render "partials/link", copy: "Back to Users", path: users_path, icon: "chevron-left", classes: "link--back" %>
+</div>
+
 <p>
   <strong>Firstname:</strong>
   <%= @user.firstname %>
@@ -24,7 +28,7 @@
   </ul>
 </p>
 
-<div>
-  <%= link_to "Back", users_path, :class => "button" %>
+<div class="nav-options">
+  <%= link_to "Edit this User", edit_user_path(@user), :class => "button" %>
+  <%= button_to "Delete this User", @problem, method: :delete, :class => "button button--delete" %>
 </div>
-<%= button_to "Delete this user", @problem, method: :delete, :class => "button" %>
