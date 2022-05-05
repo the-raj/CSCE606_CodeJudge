@@ -66,6 +66,10 @@
   border: 1px solid red;
 }
 
+.success {
+  @include theme(color, success);
+}
+
 .error {
   @include theme(color, error);
 }

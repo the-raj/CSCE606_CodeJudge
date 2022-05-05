@@ -1,6 +1,6 @@
-<%= form_for(user) do |f| %>
+<%= form_for(user, data: { turbo: false }) do |f| %>
   <% if user.errors.any? %>
-    <div id="error_explanation">
+    <div class="error">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
@@ -10,23 +10,19 @@
       </ul>
     </div>
   <% end %>
-  
-  <div class="field">
-    <%= f.label :firstname %>
-    <%= f.text_field :firstname %>
-  </div>
+  <%= f.label :firstname %>
+  <%= f.text_field :firstname %>
+  <%= f.label :lastname %>
+  <%= f.text_field :lastname %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.label :roles %>
+  <%= f.collection_check_boxes(:role_ids, Role.all, :id, :name) do |c| %>
+    <%= c.label { c.text } %>
+    <%= c.check_box %>
+  <% end %>
 
-  <div class="field">
-    <%= f.label :lastname %>
-    <%= f.text_field :lastname %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div>
+    <%= f.submit class: "button button--submit" %>
   </div>
 <% end %>
