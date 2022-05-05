@@ -40,6 +40,12 @@ class AttemptsController < ApplicationController
       @testcases.store(item.input, item.output)
     end
 
+    grader = Grader.new(@testcases,params[:attempt][:language],@attempt.code)
+
+    results = grader.grade
+
+    puts(results)
+
     respond_to do |format|
       if @attempt.save
         format.html { redirect_to attempt_url(@attempt), notice: "Attempt was successfully created." }
