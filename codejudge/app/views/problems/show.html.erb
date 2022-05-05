@@ -14,7 +14,7 @@
 <section id="test-cases">
   <h3 class="col-12">Testcases</h3>
   <% if @problem.test_cases.any? %>
-    <% @problem.test_cases.each do |test_case| %>
+    <% @visible_test_cases.each do |test_case| %>
       <div class="col-12 col-md-4">
         <%= render "partials/test_case_card", test_case: test_case %>
       </div>
