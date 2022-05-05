@@ -43,7 +43,7 @@ problem = Problem.create!(
   body: "Output should contain one line, containing the string 'Hello World!'."
 )
 problem.save
-problem.test_cases.create!(input: "", output: "Hello World")
+problem.test_cases.create!(input: "", output: "Hello World!")
 
 fib = Problem.create!(
   title: "Fibonacci Sequence",
@@ -61,47 +61,52 @@ fib.test_cases.create!(input: "1", output: "1", example: false)
   )
 end
 
-Language.create(
-  name: "python",
-  extension: ".py",
-  url_name: "https://glot.io/api/run/python"
-)
+langs = [
+["assembly", ".as", "Assembly"],
+["ats", ".dats", "ATS"],
+["bash", ".sh", "Bash"],
+["c", ".c", "C"],
+["clojure", ".clj", "Clojure"],
+["cobol", ".cob", "COBOL"],
+["cofeescript", ".coffee", "CoffeeScript"],
+["cpp", ".cpp", "C++"],
+["crystal", ".cr", "Crystal"],
+["csharp", ".cs", "C#"],
+["d", ".d", "D"],
+["elixir", ".ex", "Elixir"],
+["elm", ".elm", "Elm"],
+["erlang", ".erl", "Erlang"],
+["fsharp", ".fs", "F#"],
+["go", ".go", "Go"],
+["groovy", ".groovy", "Groovy"],
+["haskell", ".hs", "Haskell"],
+["idris", ".idr", "Idris"],
+["java", ".java", "Java"],
+["javascript", ".js", "Javascript"],
+["julia", ".jl", "Julia"],
+["kotlin", ".kt", "Kotlin"],
+["lua", ".lua", "Lua"],
+["mercury", ".m", "Mercury"],
+["nim", ".nim", "Nim"],
+["nix", ".nix", "Nix"],
+["ocaml", ".ml", "OCaml"],
+["perl", ".pl", "Perl"],
+["php", ".php", "PHP"],
+["python", ".py", "Python 3"],
+["raku", ".raku", "Raku"],
+["ruby", ".rb", "Ruby"],
+["rust", ".rs", "Rust"],
+["sac", ".sac", "SaC"],
+["scala", ".scala", "Scala"],
+["swift", ".swift", "Swift"],
+["typescript", ".ts", "TypeScript"],
+["zig", ".zig", "Zig"]
+]
 
-["assembly", ".as", "https://glot.io/api/run/python"]
-["ats", ".as", "https://glot.io/api/run/python"]
-["bash", ".as", "https://glot.io/api/run/python"]
-["c", ".as", "https://glot.io/api/run/python"]
-["clojure", ".as", "https://glot.io/api/run/python"]
-["cobol", ".as", "https://glot.io/api/run/python"]
-["cofeescript", ".as", "https://glot.io/api/run/python"]
-["cpp", ".as", "https://glot.io/api/run/python"]
-["crystal", ".as", "https://glot.io/api/run/python"]
-["csharp", ".as", "https://glot.io/api/run/python"]
-["d", ".as", "https://glot.io/api/run/python"]
-["elixir", ".as", "https://glot.io/api/run/python"]
-["erlang", ".as", "https://glot.io/api/run/python"]
-["fsharp", ".as", "https://glot.io/api/run/python"]
-["go", ".as", "https://glot.io/api/run/python"]
-["groovy", ".as", "https://glot.io/api/run/python"]
-["haskell", ".as", "https://glot.io/api/run/python"]
-["idris", ".as", "https://glot.io/api/run/python"]
-["java", ".as", "https://glot.io/api/run/python"]
-["javascript", ".as", "https://glot.io/api/run/python"]
-["julia", ".as", "https://glot.io/api/run/python"]
-["kotlin", ".as", "https://glot.io/api/run/python"]
-["lua", ".as", "https://glot.io/api/run/python"]
-["mercury", ".as", "https://glot.io/api/run/python"]
-["nim", ".as", "https://glot.io/api/run/python"]
-["nix", ".as", "https://glot.io/api/run/python"]
-["ocaml", ".as", "https://glot.io/api/run/python"]
-["perl", ".as", "https://glot.io/api/run/python"]
-["php", ".as", "https://glot.io/api/run/python"]
-["python", ".as", "https://glot.io/api/run/python"]
-["raku", ".as", "https://glot.io/api/run/python"]
-["ruby", ".as", "https://glot.io/api/run/python"]
-["rust", ".as", "https://glot.io/api/run/python"]
-["sac", ".as", "https://glot.io/api/run/python"]
-["scala", ".as", "https://glot.io/api/run/python"]
-["swift", ".as", "https://glot.io/api/run/python"]
-["typescript", ".as", "https://glot.io/api/run/python"]
-["zig", ".as", "https://glot.io/api/run/python"]
+langs.each do |lang|
+  Language.create(
+    name: lang[0],
+    extension: lang[1],
+    pretty_name: lang[2]
+  )
+end
