@@ -60,3 +60,11 @@ fib.test_cases.create!(input: "1", output: "1", example: false)
     body: Faker::Lorem.paragraph(sentence_count: 5)
   )
 end
+
+Language.create(
+  name: "python",
+  extension: ".py",
+  url_name: "https://glot.io/api/run/python"
+)
+
+

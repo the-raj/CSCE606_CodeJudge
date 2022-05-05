@@ -15,7 +15,7 @@ class Grader
 
     header_token = "Token " + @@glot_api_token
 
-    @headers = {'Authorization' => header_token, "Content-type" => "application/json"}
+    @headers = {"Authorization" => header_token, "Content-type" => "application/json"}
 
     @url = "https://glot.io/api/run/#{@language}/latest"
 
@@ -23,13 +23,15 @@ class Grader
 
     @testcases.each do |key,value|
 
-      puts(@extension)
+      @array = Array.new
 
       payload = {}
       payload[:stdin] = key
-      payload[:files] = [{:name => "main#{@extension}", :content => @code}.to_json]
+      payload[:files] = @array << {:name => "main#{@extension}", :content => @code}
 
       payload = payload.to_json
+
+      puts(payload)
 
       response = RestClient.post(@url, payload, headers=@headers)
 
