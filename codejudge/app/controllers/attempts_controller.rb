@@ -38,13 +38,14 @@ class AttemptsController < ApplicationController
 
     @testcases_query.each do |item|
       @testcases.store(item.input, item.output)
+      SubmitCodeJob.perform_async(item.input, item.output, params[:attempt][:language], @attempt.code, @testcases_query.keys.index(item))
     end
 
-    grader = Grader.new(@testcases,params[:attempt][:language],@attempt.code)
+    #grader = Grader.new(@testcases,params[:attempt][:language],@attempt.code)
 
-    results = grader.grade
+    #results = grader.grade
 
-    puts(results)
+    #puts(results)
 
     respond_to do |format|
       if @attempt.save
