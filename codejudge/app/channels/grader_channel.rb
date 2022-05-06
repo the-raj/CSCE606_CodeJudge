@@ -1,6 +1,6 @@
 class GraderChannel < ApplicationCable::Channel
   def subscribed
-    stream_for current_user
+    stream_from current_user
   end
 
   def unsubscribed

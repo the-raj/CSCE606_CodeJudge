@@ -44,7 +44,8 @@ class AttemptsController < ApplicationController
 
     @testcases_query.each do |item|
       @testcases.store(item[0], item[1])
-      SubmitCodeJob.perform_async(item[0], item[1], language, @attempt.code, @testcases_query.index(item))
+      puts(current_user.id)
+      SubmitCodeJob.perform_async(item[0], item[1], language, @attempt.code, @testcases_query.index(item), current_user.id)
     end
 
     respond_to do |format|
