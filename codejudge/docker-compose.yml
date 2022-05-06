@@ -37,6 +37,26 @@ services:
     ports:
       - "5432:5432"
 
+  redis:
+    image: 'redis:5-alpine'
+    command: redis-server
+    ports:
+      - '6379:6379'
+    volumes:
+      - './redis:/data'
+
+  sidekiq:
+    depends_on:
+      - 'database'
+      - 'redis'
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - '.:/project'
+      - '/project/tmp'
+    environment:
+      - REDIS_URL_SIDEKIQ=redis://redis:6379/1
+
   web:
     # The root directory from which we're building.
     build: .
@@ -59,6 +79,8 @@ services:
     # container which we've called "database".
     depends_on:
       - database
+      - sidekiq
+      - redis
 
     # Specify the values of the environment variables
     # used in this container.
@@ -68,6 +90,8 @@ services:
       DATABASE_USER: codejudge
       DATABASE_PASSWORD:
       DATABASE_HOST: database
+      REDIS_URL_SIDEKIQ: redis://redis:6379/1
+
 
   redis:
     image: 'redis:4.0-alpine'

@@ -6,19 +6,7 @@ class LanguagesController < ApplicationController
 
   # GET /languages or /languages.json
   def index
-    @languages = Language.all.order(:name)
-    if Language.all.blank?
-      response = RestClient.get('https://glot.io/api/run')
-      response = JSON.parse(response)
-      @language = Language.new
-      response.each do |r|
-        if Language.where(name: r["name"]).empty?
-          Language.create(:url_name => r["url"], :name => r["name"])
-        end
-      end
-    else
-      @languages = Language.all.order(:name)
-    end
+    @languages = Language.all.order(:pretty_name)
   end
 
   # GET /languages/1 or /languages/1.json
@@ -81,6 +69,6 @@ class LanguagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def language_params
-      params.require(:language).permit(:name, :url_name, :extension)
+      params.require(:language).permit(:name, :pretty_name, :extension)
     end
 end

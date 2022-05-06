@@ -43,7 +43,7 @@ problem = Problem.create!(
   body: "Output should contain one line, containing the string 'Hello World!'."
 )
 problem.save
-problem.test_cases.create!(input: "", output: "Hello World")
+problem.test_cases.create!(input: "", output: "Hello World!")
 
 fib = Problem.create!(
   title: "Fibonacci Sequence",
@@ -58,5 +58,55 @@ fib.test_cases.create!(input: "1", output: "1", example: false)
   Problem.create(
     title: Faker::Lorem.sentence(word_count: 3),
     body: Faker::Lorem.paragraph(sentence_count: 5)
+  )
+end
+
+langs = [
+["assembly", ".as", "Assembly"],
+["ats", ".dats", "ATS"],
+["bash", ".sh", "Bash"],
+["c", ".c", "C"],
+["clojure", ".clj", "Clojure"],
+["cobol", ".cob", "COBOL"],
+["cofeescript", ".coffee", "CoffeeScript"],
+["cpp", ".cpp", "C++"],
+["crystal", ".cr", "Crystal"],
+["csharp", ".cs", "C#"],
+["d", ".d", "D"],
+["elixir", ".ex", "Elixir"],
+["elm", ".elm", "Elm"],
+["erlang", ".erl", "Erlang"],
+["fsharp", ".fs", "F#"],
+["go", ".go", "Go"],
+["groovy", ".groovy", "Groovy"],
+["haskell", ".hs", "Haskell"],
+["idris", ".idr", "Idris"],
+["java", ".java", "Java"],
+["javascript", ".js", "Javascript"],
+["julia", ".jl", "Julia"],
+["kotlin", ".kt", "Kotlin"],
+["lua", ".lua", "Lua"],
+["mercury", ".m", "Mercury"],
+["nim", ".nim", "Nim"],
+["nix", ".nix", "Nix"],
+["ocaml", ".ml", "OCaml"],
+["perl", ".pl", "Perl"],
+["php", ".php", "PHP"],
+["python", ".py", "Python 3"],
+["raku", ".raku", "Raku"],
+["ruby", ".rb", "Ruby"],
+["rust", ".rs", "Rust"],
+["sac", ".sac", "SaC"],
+["scala", ".scala", "Scala"],
+["swift", ".swift", "Swift"],
+["typescript", ".ts", "TypeScript"],
+["zig", ".zig", "Zig"]
+]
+
+langs.each do |lang|
+  Language.create(
+    name: lang[0],
+    extension: lang[1],
+    pretty_name: lang[2]
   )
 end
