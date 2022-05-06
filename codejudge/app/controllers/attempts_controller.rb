@@ -27,18 +27,25 @@ class AttemptsController < ApplicationController
   def create
     @attempt = Attempt.new
 
-    @attempt.language_id = Language.all.where(name: params[:attempt][:language]).pick(:id)
+    puts(params[:attempt][:pretty_name])
+
+    @attempt.language_id = Language.all.where(:pretty_name: params[:attempt][:pretty_name]).pick(:id)
+
+    puts(@attempt.language_id, "LANGUAGEID")
+
     @attempt.code = File.read(params[:attempt][:sourcecode])
     @attempt.user_id = session[:user_id]
     @attempt.problem_id = params[:problem_id]
 
-    @testcases_query = TestCase.left_outer_joins(:problem).where(problem_id: @attempt.problem_id)
+    @testcases_query = TestCase.left_outer_joins(:problem).where(problem_id: @attempt.problem_id).map{ |r| [r.input, r.output]}
 
     @testcases = {}
 
+    puts(@testcases_query)
+
     @testcases_query.each do |item|
-      @testcases.store(item.input, item.output)
-      SubmitCodeJob.perform_async(item.input, item.output, params[:attempt][:language], @attempt.code, @testcases_query.keys.index(item))
+      @testcases.store(item[0], item[1])
+      SubmitCodeJob.perform_async(item[0], item[1], params[:attempt][:language], @attempt.code, @testcases_query.index(item))
     end
 
     #grader = Grader.new(@testcases,params[:attempt][:language],@attempt.code)
