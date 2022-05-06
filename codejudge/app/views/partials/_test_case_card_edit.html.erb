@@ -1,0 +1,13 @@
+<div class="test-case-card test-case-card--edit">
+  <p>
+    <strong>Input:</strong> 
+    <% if test_case.input == "" %>
+      No Input specified  
+    <% else %>  
+      <%= test_case.input %>
+    <% end %>
+  </p>
+  <p>
+    <strong>Output:</strong> <%= test_case.output %>
+  </p>
+</div>

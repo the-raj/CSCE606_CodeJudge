@@ -24,4 +24,16 @@ module ApplicationHelper
   def format_code_css(css_class, style:)
     Pygments.css(css_class, style: style)
   end
+
+  def link_delete_modal_tag(content, item_to_delete, item_description, options={})
+    delete_button = link_to("Delete", item_to_delete, method: :delete, :class => "button button--delete")
+    onclick = "Modal.show('Delete #{item_description}', 'Are you sure you want to delete this #{item_description.downcase}?', ['#{delete_button}'])"
+    content_tag(:a, content, class: options[:class], onclick: "#{onclick}")
+  end
+
+  def button_delete_modal_tag(content, item_to_delete, item_description, options={})
+    delete_button = button_to("Delete", item_to_delete, method: :delete, :class => "button button--delete")
+    onclick = "Modal.show('Delete #{item_description}', 'Are you sure you want to delete this #{item_description.downcase}?', ['#{delete_button}'])"
+    content_tag(:button, content, class: options[:class], onclick: "#{onclick}")
+  end
 end

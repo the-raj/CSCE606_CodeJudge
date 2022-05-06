@@ -1,13 +1,11 @@
-<div class="test-case-card">
-  <p>
-    <strong>Input:</strong> 
-    <% if test_case.input == "" %>
-      No Input specified  
-    <% else %>  
-      <%= test_case.input %>
+<div class="test-case-card <%= passed ? "test-case-card--success" : "test-case-card--failed" %>">
+  <div class="test-case-card__status">
+    <% if passed %>
+      <p>Passed</p>
+    <% else %>
+      <p>Failed</p>
     <% end %>
-  </p>
-  <p>
-    <strong>Output:</strong> <%= test_case.output %>
-  </p>
+  </div>
+  <span class="test-case-card__separator"></span>
+  <p class="test-case-card__copy">This is a sample test case<%=  %></p>
 </div>

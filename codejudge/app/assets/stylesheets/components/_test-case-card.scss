@@ -1,10 +1,52 @@
 .test-case-card {
-  @include theme(background-color, test-card-background);
-  border-radius: 2px;
+  @include theme(background-color, test-case-card-background);
+  @include theme(color, test-case-card-copy);
 
-  padding: 20px 20px;
+  padding: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.1s ease-out;
 
-  > :last-child {
-    margin: 0;
+  &:hover {
+    transform: scale(1.015)
+  }
+
+  &__status p {
+    @include font-size(30px);
+    @include font-text-bold;
+    margin-bottom: 20px;
+  }
+
+  &__separator {
+    @include theme(background-color, test-case-card-highlight);
+
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 1px;
+    margin-bottom: 10px;
+  }
+
+  // &__copy {
+
+  // }
+
+  &--success {
+    @include theme(box-shadow, test-case-card-box-shadow, 0 0 15px 3px);
+  }
+
+  &--failed {
+    @include theme(color, test-case-card-copy-failed);
+  }
+
+  &--edit {
+    @include theme(background-color, test-case-card-edit-background);
+    border-radius: 2px;
+
+    padding: 20px 20px;
+
+    > :last-child {
+      margin: 0;
+    }
   }
 }

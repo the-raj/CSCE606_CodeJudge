@@ -36,6 +36,15 @@
           }
         }
       }
+
+      button {
+        @include font-size-link;
+        @include font-text-regular;
+        
+        background-color: transparent;
+        border: none;
+        color: inherit;
+      }
     }
 
     th,
@@ -53,7 +62,7 @@
         }
       }
 
-      > a, span {
+      > a, button, span {
         display: block;
         padding: 0.5em;
         transition: transform 0.2s ease-out;

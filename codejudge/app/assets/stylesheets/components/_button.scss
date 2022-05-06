@@ -1,3 +1,7 @@
+button {
+  cursor: pointer;
+}
+
 .button {
   @include theme(background-color, button-background);
   @include theme(color, button-copy);
@@ -41,6 +45,7 @@
     @include theme(color, button-delete-copy);
     @include theme(background-color, button-delete-background);
     height: 55px;
+    display: flex;
 
     &:hover {
       @include theme(color, button-delete-copy-hover);
@@ -54,6 +59,7 @@
     @include theme(background-color, button-submit-background);
     height: 55px;
     text-transform: uppercase;
+    display: flex;
 
     &:hover {
       @include theme(color, button-submit-copy-hover);
