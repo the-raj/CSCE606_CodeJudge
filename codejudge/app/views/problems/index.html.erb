@@ -21,7 +21,7 @@
         <% if policy(:problem).new? %>
           <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
           <td>
-            <%= button_delete_modal_tag "Delete", @problem, "Problem" %>
+            <%= button_delete_modal_tag "Delete", problem, "Problem" %>
           </td>
         <% end %>
       </tr>
