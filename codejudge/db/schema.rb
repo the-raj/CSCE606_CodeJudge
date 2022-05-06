@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_06_032050) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_06_032749) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_06_032050) do
   create_table "attempts_test_cases", id: false, force: :cascade do |t|
     t.bigint "attempt_id"
     t.bigint "test_case_id"
+    t.boolean "passed"
     t.index ["attempt_id"], name: "index_attempts_test_cases_on_attempt_id"
     t.index ["test_case_id"], name: "index_attempts_test_cases_on_test_case_id"
   end
