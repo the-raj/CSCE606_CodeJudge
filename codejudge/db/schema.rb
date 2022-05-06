@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_02_000828) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_06_174928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_000828) do
     t.index ["user_id"], name: "index_attempts_on_user_id"
   end
 
+  create_table "attempts_test_cases", id: false, force: :cascade do |t|
+    t.bigint "attempt_id"
+    t.bigint "test_case_id"
+    t.boolean "passed"
+    t.text "output"
+    t.index ["attempt_id"], name: "index_attempts_test_cases_on_attempt_id"
+    t.index ["test_case_id"], name: "index_attempts_test_cases_on_test_case_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_000828) do
     t.string "extension"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "url_name"
+    t.string "pretty_name"
   end
 
   create_table "problems", force: :cascade do |t|
@@ -78,7 +87,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_000828) do
     t.datetime "updated_at", null: false
     t.string "email"
     t.string "username"
-    t.string "password"
     t.string "firstname"
     t.string "lastname"
     t.string "password_digest"

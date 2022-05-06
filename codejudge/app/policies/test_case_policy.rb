@@ -35,6 +35,7 @@ class TestCasePolicy < ApplicationPolicy
 
   def show?
     user.role? :admin or user.role? :instructor or user.role? :ta or user.role? :student
+    #Logic re: hidden test cases is handled elsewhere
   end
 
 end
