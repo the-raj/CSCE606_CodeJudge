@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @user_roles = @user.roles.map{|role| role.name}
     authorize :user
   end
 
@@ -20,6 +21,8 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @all_roles = Role.all
+    @assigned_roles = @user.roles
     authorize :user
   end
 
@@ -42,6 +45,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     authorize :user
+    p params[:user]
+    params[:user].delete(:password) if params[:user][:password].blank?
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
@@ -55,7 +60,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
-    authoorize @user
+    authorize @user
     
     @user.destroy
 
@@ -73,6 +78,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:email, :password_digest)
+      params.require(:user).permit(:firstname, :lastname, :email, role_ids: [])
     end
 end

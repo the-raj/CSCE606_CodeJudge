@@ -19,6 +19,7 @@ class ProblemsController < ApplicationController
   def show
     @languages_list = Language.pluck(:name)
     @attempt = Attempt.new
+    @visible_test_cases = @problem.visible_test_cases @problem, current_user.role
   end
 
   # GET /problems/new
@@ -83,7 +84,7 @@ class ProblemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def problem_params
-      params.require(:problem).permit(:title, :body, test_cases_attributes: [:id, :input, :output, :_destroy])
+      params.require(:problem).permit(:title, :body, test_cases_attributes: [:id, :input, :output, :example, :_destroy])
     end
 
     def set_languages

@@ -23,8 +23,7 @@ instructor = User.create!(username: "instructor", password: "password", password
 instructor.assignments.create!(role: role_instructor)
 ta = User.create!(username: "teaching_asst", password: "password", password_confirmation: "password", firstname: "test", lastname: "ta", email: "ta@example.com")
 ta.assignments.create!(role: role_ta)
-ta = User.create!(username: "student", password: "password", password_confirmation: "password", firstname: "test", lastname: "student", email: "student@example.com")
-ta.assignments.create!(role: role_student)
+student = User.create!(username: "student", password: "password", password_confirmation: "password", firstname: "test", lastname: "student", email: "student@example.com")
 
 
 (1..50).each do |id|

@@ -1,6 +1,6 @@
 <%= form_for(@problem, data: { turbo: false }) do |f| %>
   <% if @problem.errors.any? %>
-    <div style="color: red">
+    <div class="error">
       <h2><%= pluralize(@problem.errors.count, "error") %> prohibited this @problem from being saved:</h2>
 
       <ul>

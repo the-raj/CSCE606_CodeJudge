@@ -7,7 +7,11 @@ class AttemptsController < ApplicationController
 
   # GET /attempts or /attempts.json
   def index
-    @attempts = Attempt.all
+    unless current_user.role? :admin
+      @attempts = current_user.attempts
+    else
+      @attempts = Attempt.all
+    end
   end
 
   # GET /attempts/1 or /attempts/1.json
