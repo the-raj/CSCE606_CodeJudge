@@ -6,6 +6,9 @@ class LanguagePolicy < ApplicationPolicy
     # end
   end
 
+  #Adding languages is a WIP feature.
+  #There are already 39 via glot.io so it is a "nice-to-have"
+
   def create?
     user.role? :admin
   end

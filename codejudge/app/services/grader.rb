@@ -1,3 +1,11 @@
+## This is the class which handles grading the code
+## It is an example of the facade pattern
+## If glot.io needs to be replaced, only this file needs to be modified
+## 
+## Input:testcases, language, code
+## Output: hash with "Pass" if passed, stdout if failed, and stderr if error
+## Each item in the hash is a test case
+
 class Grader
 
   require 'rest-client'
@@ -49,7 +57,7 @@ class Grader
 
     end
 
-    puts(results)
+    puts(results, "resultshash")
 
   end
 

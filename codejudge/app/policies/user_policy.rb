@@ -6,6 +6,8 @@ class UserPolicy < ApplicationPolicy
     # end
   end
 
+  #Only admin should be able to deal with users
+
   def create?
     user.role? :admin
   end

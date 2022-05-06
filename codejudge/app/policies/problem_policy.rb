@@ -6,6 +6,8 @@ class ProblemPolicy < ApplicationPolicy
     # end
   end
 
+  #Key takeaway: students can read problems but do nothing else
+
   def create?
     user.role? :admin or user.role? :instructor or user.role? :ta 
   end

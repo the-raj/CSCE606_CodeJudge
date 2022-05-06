@@ -24,35 +24,27 @@ class AttemptsController < ApplicationController
   end
 
   # POST /attempts or /attempts.json
+  # This function pulls the test cases for the problem and sends it off to Sidekiq
   def create
     @attempt = Attempt.new
 
-    puts(params[:attempt][:pretty_name])
+    language = Language.where(pretty_name: params[:attempt][:language]).pick(:name)
 
-    @attempt.language_id = Language.all.where(:pretty_name: params[:attempt][:pretty_name]).pick(:id)
-
-    puts(@attempt.language_id, "LANGUAGEID")
+    language_id = Language.where(name: language).pick(:id)
 
     @attempt.code = File.read(params[:attempt][:sourcecode])
     @attempt.user_id = session[:user_id]
     @attempt.problem_id = params[:problem_id]
+    @attempt.language_id = language_id
 
     @testcases_query = TestCase.left_outer_joins(:problem).where(problem_id: @attempt.problem_id).map{ |r| [r.input, r.output]}
 
     @testcases = {}
 
-    puts(@testcases_query)
-
     @testcases_query.each do |item|
       @testcases.store(item[0], item[1])
-      SubmitCodeJob.perform_async(item[0], item[1], params[:attempt][:language], @attempt.code, @testcases_query.index(item))
+      SubmitCodeJob.perform_async(item[0], item[1], language, @attempt.code, @testcases_query.index(item))
     end
-
-    #grader = Grader.new(@testcases,params[:attempt][:language],@attempt.code)
-
-    #results = grader.grade
-
-    #puts(results)
 
     respond_to do |format|
       if @attempt.save
