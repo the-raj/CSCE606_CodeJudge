@@ -21,8 +21,7 @@
         <% if policy(:problem).new? %>
           <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
           <td>
-            <%= link_to 'Delete', problem, method: :delete, data: { confirm: 'Are
-            you sure?' } %>
+            <%= button_delete_modal_tag "Delete", @problem, "Problem" %>
           </td>
         <% end %>
       </tr>

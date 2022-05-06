@@ -6,6 +6,13 @@ class ProblemsController < ApplicationController
   # GET /problems or /problems.json
   def index
     @problems = Problem.all
+    render :index
+    GraderChannel.broadcast_to(
+      current_user,
+      title: 'New things!',
+      body: 'All the news fit to print'
+    )
+    puts "BROADCAST"
   end
 
   # GET /problems/1 or /problems/1.json

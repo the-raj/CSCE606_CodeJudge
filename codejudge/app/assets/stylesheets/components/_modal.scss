@@ -1,0 +1,116 @@
+.modal {
+  @include theme(background-color, modal-shadow);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  pointer-events: none;
+
+  &--show {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.modal {
+  &__content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__dialogue {
+    @include theme(background-color, modal-background);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    @include theme(background-color, modal-header-background);
+    @include theme(color, modal-header-color);
+
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+  }
+
+  &__close-button {
+    @include theme(color, modal-header-color);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    background: transparent;
+    border: none;
+    margin-left: auto;
+    margin-right: 0;
+    transition: transform 0.1s ease-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__headline {
+    @include font-headline-regular;
+
+    margin: 0 0 0 20px;
+    position: relative;
+
+    &::after {
+      @include theme(background-color, attention);
+
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+    }
+  }
+
+  &__body {
+    flex: 1;
+    padding: 20px 20px 30px;
+  }
+
+  &__copy {
+    flex: 1;
+  }
+
+  &__buttons {
+    display: flex;
+    padding: 20px 20px 30px;
+
+    > * {
+      flex: 1;
+    }
+    
+    button {
+      margin: 0;
+      width: 100%;
+    }
+  }
+}
