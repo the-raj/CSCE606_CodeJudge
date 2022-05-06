@@ -15,12 +15,13 @@
 <%= render @attempt %>
 
 <% if @problem.test_cases.any? %>
+  <% puts(@problem) %>
   <% @problem.test_cases.each do |test_case| %>
     <div class="col-12 col-md-4">
-      <%= render "partials/test_case_card", test_case: test_case %>
+      <%= render "partials/test_case_card", passed: true %>
     </div>
   <% end %>
-<% else %>
+<% end %>
 
 <div class="nav-options">
   <% if policy(:attempt).edit? %>
