@@ -69,6 +69,25 @@ services:
       DATABASE_PASSWORD:
       DATABASE_HOST: database
 
+  redis:
+    image: 'redis:4.0-alpine'
+    command: redis-server --requirepass yourpassword
+    volumes:
+      - 'redis:/data'
+
+  cable:
+    depends_on:
+      - 'redis'
+    build: .
+    command: puma -p 28080 cable/config.ru
+    ports:
+      - '28080:28080'
+    volumes:
+      - '.:/code'
+    env_file:
+      - '.env'
+
 # Declare the volumes that our application uses.
 volumes:
   db_data:
+  redis:
