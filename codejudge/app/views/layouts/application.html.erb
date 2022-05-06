@@ -8,6 +8,7 @@
     <%= favicon_link_tag asset_path('monitor-judge.png')%>
     <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags("application", shim: false) %> 
+    <%= yield :js %>
     <%= yield :head %>
   </head>
 
@@ -22,6 +23,7 @@
         </div>
       </main>
       <%= render "partials/footer" %>
+      <%= render "partials/modal" %>
     </div>
   </body>
 </html>

@@ -11,17 +11,19 @@
   <%= render "partials/text_card", headline: "Description", copy: @problem.body %>
 </div>
 
-<section id="test-cases">
-  <h3 class="col-12">Testcases</h3>
-  <% if @problem.test_cases.any? %>
-    <% @problem.test_cases.each do |test_case| %>
-      <div class="col-12 col-md-4">
-        <%= render "partials/test_case_card", test_case: test_case %>
-      </div>
+<section id="test-cases" class="container">
+  <div class="row">
+    <h3 class="col-12">Testcases</h3>
+    <% if @problem.test_cases.any? %>
+      <% @problem.test_cases.each do |test_case| %>
+        <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+          <%= render "partials/test_case_card", passed: true %>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="col-12">No test cases were specified for this problem.</p>
     <% end %>
-  <% else %>
-    <p class="col-12">No test cases were specified for this problem.</p>
-  <% end %>
+  </div>
 </section>
 <section id ="file-upload">
   <%= form_for(@attempt) do |f| %>
@@ -34,9 +36,9 @@
 </section>
 <div class="nav-options">
   <% if policy(:problem).edit? %>
-    <%= link_to "Edit this problem", edit_problem_path(@problem), :class => "button" %>
+    <%= link_to "Edit this Problem", edit_problem_path(@problem), :class => "button" %>
   <% end %> 
   <% if policy(:problem).destroy? %>
-    <%= button_to "Delete this problem", @problem, method: :delete, :class => "button button--delete" %>
+    <%= button_delete_modal_tag "Delete this Problem", @problem, "Problem", class: "button button--delete" %>
   <% end %>
 </div>

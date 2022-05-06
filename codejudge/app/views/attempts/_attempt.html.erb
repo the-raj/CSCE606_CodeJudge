@@ -1,12 +1,4 @@
-<% content_for :head do %>
-  <style><%= format_code_css('.highlight', style: "xcode") %></style>
-<% end %>
-
-<div id="<%= dom_id attempt %>">
-  <h3>Code:</h3>
-  <div class="code-preview">
-    <%= format_code(attempt.code, attempt.language.name) %>
-  </div>
-  <br></br>
-  <h3>Test Cases:</h3>
+<h3>Code:</h3>
+<div class="code-preview">
+  <%= format_code(attempt.code, attempt.language.name) %>
 </div>
