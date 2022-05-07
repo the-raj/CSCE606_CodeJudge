@@ -50,7 +50,7 @@ services:
       - 'postgres'
       - 'redis'
     build: .
-    command: bundle exec sidekiq -C config/sidekiq.yml
+    command: bundle exec sidekiq
     volumes:
       - '.:/code'
     working_dir: /code
