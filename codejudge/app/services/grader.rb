@@ -62,14 +62,7 @@ class Grader
       @stdout = decoded_response['stdout']
       @stderr = decoded_response['stderr']
       
-      # sleep(3)
-
-      # GraderChannel.broadcast_to(
-      #   User.find(@current_user),
-      #   passed: @passed,
-      #   stdout: @stdout,
-      #   stderr: @stderr
-      # )
+      return {passed: @passed, stdout: @stdout, stderr: @stderr}
     end
   end
 end

@@ -17,14 +17,18 @@ class SubmitCodeJob
     current_user = args[5]
     grader = Grader.new(@testcase,language,code,current_user)
 
-    sleep(5)
-    puts current_user
-    GraderChannel.broadcast_to(
-      "grader_channel",
-      { test: "This is a test!" }
+    results = grader.grade
+    ActionCable.server.broadcast(
+      "grader_channel_#{current_user}",
+      {
+        id: test_case_number,
+        passed: results[:passed],
+        stdout: results[:stdout],
+        stderr: results[:stderr],
+        finished_at: Time.current.strftime("%m/%d/%Y %r")
+      }
     )
 
-    # results = grader.grade
 
     # puts(results)
 

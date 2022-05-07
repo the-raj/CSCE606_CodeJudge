@@ -13,8 +13,8 @@ document.addEventListener("turbo:load", () => {
     },
     received(data) {
       console.log(data)
-      console.log(data["stdout"])
-      // new Notification(data["title"], { body: data["body"] })
+      const test_case_card = document.getElementById(`test_case_${data["id"]}`)
+      test_case_card.querySelector(".test-case-card__status").firstChild.textContent = data["passed"] ? "Passed" : "Failed"
     }
   })
 })

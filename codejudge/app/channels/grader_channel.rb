@@ -1,7 +1,7 @@
 class GraderChannel < ApplicationCable::Channel
   def subscribed
     puts "USER SUBSCRIBED"
-    stream_for "grader_channel"
+    stream_from "grader_channel_#{current_user.id}"
   end
   
   def unsubscribed
