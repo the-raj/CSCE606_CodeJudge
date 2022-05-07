@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_07_210319) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_07_215853) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_210319) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "scores", force: :cascade do |t|
+    t.boolean "passed"
+    t.text "stdout"
+    t.text "stderr"
+    t.bigint "attempt_id"
+    t.bigint "test_case_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attempt_id"], name: "index_scores_on_attempt_id"
+    t.index ["test_case_id"], name: "index_scores_on_test_case_id"
+  end
+
   create_table "test_cases", force: :cascade do |t|
     t.bigint "problem_id"
     t.boolean "example", default: false, null: false
@@ -100,5 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_210319) do
   add_foreign_key "attempts", "problems"
   add_foreign_key "attempts", "users"
   add_foreign_key "problems", "users", column: "author_id"
+  add_foreign_key "scores", "attempts"
+  add_foreign_key "scores", "test_cases"
   add_foreign_key "test_cases", "problems"
 end

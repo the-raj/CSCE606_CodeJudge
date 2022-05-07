@@ -12,13 +12,14 @@ class Grader
 
   @@glot_api_token = '7dc296c5-b178-40d8-a0b2-00f06afd05a6'
 
-  def initialize(testcases, language, code, current_user)
+  def initialize(testcases, language, code, current_user, current_attempt)
     puts "WORKS"
     @testcases = testcases
     @language = language
     @extension = Language.where(name: @language).pick(:extension)
     @code = code
     @current_user = current_user
+    @current_attempt = current_attempt
     puts "END"
   end
 
@@ -31,6 +32,8 @@ class Grader
     @url = "https://glot.io/api/run/#{@language}/latest"
 
     results = {}
+
+    #Left as array for future batching support
 
     @testcases.each do |key,value|
 
@@ -61,7 +64,7 @@ class Grader
       @passed = true
       @stdout = decoded_response['stdout']
       @stderr = decoded_response['stderr']
-      
+
       return {passed: @passed, stdout: @stdout, stderr: @stderr}
     end
   end
