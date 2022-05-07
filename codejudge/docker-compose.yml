@@ -6,7 +6,7 @@ version: "3.8"
 # service ("web") and our PostgreSQL database instance
 # is another service ("database").
 services:
-  database:
+  postgres:
     # Use the postgres 11.5 base image for this container.
     image: postgres:11.5
 
@@ -20,8 +20,8 @@ services:
       # We're associating this directory with something
       # called a volume. (You can see all your Docker
       # volumes by running +docker volume ls+.) The name
-      # of our volume is db_data.
-      - db_data:/var/lib/postgresql/data
+      # of our volume is postgres.
+      - postgres:/var/lib/postgresql/data
 
       # This copies our init.sql into our container, to
       # a special file called
@@ -47,15 +47,17 @@ services:
 
   sidekiq:
     depends_on:
-      - 'database'
+      - 'postgres'
       - 'redis'
     build: .
-    command: bundle exec sidekiq
+    command: bundle exec sidekiq -C config/sidekiq.yml
     volumes:
-      - '.:/project'
-      - '/project/tmp'
+      - '.:/code'
+    working_dir: /code
     environment:
-      - REDIS_URL_SIDEKIQ=redis://redis:6379/1
+      REDIS_URL_SIDEKIQ: redis://redis:6379/1
+      DATABASE_URL: postgres://postgres@postgres
+
 
   web:
     # The root directory from which we're building.
@@ -78,7 +80,7 @@ services:
     # Specify that this container depends on the other
     # container which we've called "database".
     depends_on:
-      - database
+      - postgres
       - sidekiq
       - redis
 
@@ -89,7 +91,7 @@ services:
       DATABASE_NAME: codejudge
       DATABASE_USER: codejudge
       DATABASE_PASSWORD:
-      DATABASE_HOST: database
+      DATABASE_HOST: postgres
       REDIS_URL_SIDEKIQ: redis://redis:6379/1
 
   cable:
@@ -106,5 +108,5 @@ services:
 
 # Declare the volumes that our application uses.
 volumes:
-  db_data:
+  postgres:
   redis:
