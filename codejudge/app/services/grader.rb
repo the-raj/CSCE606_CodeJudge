@@ -13,11 +13,13 @@ class Grader
   @@glot_api_token = '7dc296c5-b178-40d8-a0b2-00f06afd05a6'
 
   def initialize(testcases, language, code, current_user)
+    puts "WORKS"
     @testcases = testcases
     @language = language
     @extension = Language.where(name: @language).pick(:extension)
     @code = code
     @current_user = current_user
+    puts "END"
   end
 
   def grade
@@ -59,17 +61,16 @@ class Grader
       @passed = true
       @stdout = decoded_response['stdout']
       @stderr = decoded_response['stderr']
+      
+      # sleep(3)
 
+      # GraderChannel.broadcast_to(
+      #   User.find(@current_user),
+      #   passed: @passed,
+      #   stdout: @stdout,
+      #   stderr: @stderr
+      # )
     end
-
   end
-
-    GraderChannel.broadcast_to(
-      User.find(@current_user),
-      passed: @passed,
-      stdout: @stdout,
-      stderr: @stderr
-    )
-
-  end
+end
 

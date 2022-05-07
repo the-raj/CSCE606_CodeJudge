@@ -42,12 +42,6 @@ class AttemptsController < ApplicationController
 
     @testcases = {}
 
-    @testcases_query.each do |item|
-      @testcases.store(item[0], item[1])
-      puts(current_user.id)
-      SubmitCodeJob.perform_async(item[0], item[1], language, @attempt.code, @testcases_query.index(item), current_user.id)
-    end
-
     respond_to do |format|
       if @attempt.save
         format.html { redirect_to attempt_url(@attempt), notice: "Attempt was successfully created." }
@@ -56,6 +50,12 @@ class AttemptsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @attempt.errors, status: :unprocessable_entity }
       end
+    end
+
+    @testcases_query.each do |item|
+      @testcases.store(item[0], item[1])
+      puts(current_user.id)
+      SubmitCodeJob.perform_async(item[0], item[1], language, @attempt.code, @testcases_query.index(item), current_user.id)
     end
   end
 
