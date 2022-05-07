@@ -13,7 +13,7 @@ class Grader
   @@glot_api_token = '7dc296c5-b178-40d8-a0b2-00f06afd05a6'
 
   def initialize(testcases, language, code, current_user, current_attempt)
-    puts "WORKS"
+    puts "GRADING INITIALIZED"
     @testcases = testcases
     @language = language
     @extension = Language.where(name: @language).pick(:extension)
@@ -65,6 +65,13 @@ class Grader
       @stdout = decoded_response['stdout']
       @stderr = decoded_response['stderr']
 
+      @testcase = TestCase.where(input: key).first()
+
+      @attempt = Attempt.find(@current_attempt)
+
+      Score.create!(passed: @passed, stdout: @stdout, stderr: @stderr, attempt: @attempt, test_case: @testcase)
+
+    
       return {passed: @passed, stdout: @stdout, stderr: @stderr}
     end
   end
