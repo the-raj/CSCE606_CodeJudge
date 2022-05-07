@@ -13,7 +13,7 @@
 <% if @problem.test_cases.any? %>
   <% @problem.test_cases.each_with_index do |test_case, index| %>
     <div id=<%= "test_case_#{index+1}" %> class="col-12 col-md-4">
-      <%= render "partials/test_case_card", passed: true%>
+      <%= render "partials/test_case_card", status: "Passed", passed: true%>
     </div>
   <% end %>
 <% end %>
