@@ -4,9 +4,8 @@
   <%= render "partials/link", copy: "Back to Problems", path: problems_path, icon: "chevron-left", classes: "link--back" %>
 </div>
 
-<div class="col-12">
-  <%= render "partials/text_card", headline: "Problem", copy: @problem.title %>
-</div>
+<h1 class="col-12 col-md-6"><%= @problem.title %></h1>
+
 <div class="col-12">
   <%= render "partials/text_card", headline: "Description", copy: @problem.body %>
 </div>
@@ -14,14 +13,14 @@
 <section id="test-cases" class="container">
   <div class="row">
     <h3 class="col-12">Testcases</h3>
-    <% if @problem.test_cases.any? %>
-      <% @problem.test_cases.each do |test_case| %>
+    <% if @visible_test_cases.any? %>
+      <% @visible_test_cases.each do |test_case| %>
         <div class="col-12 col-md-4 col-lg-3 col-xl-2">
-          <%= render "partials/test_case_card", passed: true %>
+          <%= render "partials/test_case_card_edit", test_case: test_case %>
         </div>
       <% end %>
     <% else %>
-      <p class="col-12">No test cases were specified for this problem.</p>
+      <p class="col-12"><%= @no_test_cases_prompt %></p>
     <% end %>
   </div>
 </section>

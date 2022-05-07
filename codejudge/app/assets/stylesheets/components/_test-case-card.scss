@@ -45,6 +45,11 @@
 
     padding: 20px 20px;
 
+    &:hover {
+      transform: none;
+      cursor: unset;
+    }
+
     > :last-child {
       margin: 0;
     }

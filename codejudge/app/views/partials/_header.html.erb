@@ -1,19 +1,6 @@
 <header class="header">
   <div class="header__content container">
-    <div class="header__left">
-      <%= link_to "CodeJudge", problems_path, id: "logo" %>
-      <nav>
-        <ul>
-          <li><%= link_to "Problems", problems_path, :class => active_link_class('problems') %></li>
-          <li><%= link_to "Attempts", attempts_path, :class => active_link_class('attempts') %></li>
-          <% if policy(:user).index? %>
-            <li><%= link_to "Users", users_path, :class => active_link_class('users') %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
-    <div class="header__right">
-      <%= button_to 'Logout', log_out_path, method: :delete, :id => "logout_btn", :class => "button" %>
-    </div>
+    <%= link_to "CodeJudge", problems_path, id: "logo" %>
+    <%= render "partials/navbar" %>
   </div>
 </header>

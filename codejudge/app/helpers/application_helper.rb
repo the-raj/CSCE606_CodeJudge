@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def format_code(code, language)
-    raw Pygments.highlight(code, options: {encoding: 'utf-8'})
+    raw Pygments.highlight(code, lexer: language, options: {encoding: 'utf-8', linenos: true})
   end
 
   def format_code_css(css_class, style:)

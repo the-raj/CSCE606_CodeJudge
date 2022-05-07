@@ -14,6 +14,7 @@ class ProblemsController < ApplicationController
     @languages_list = Language.pluck(:pretty_name)
     @attempt = Attempt.new
     @visible_test_cases = @problem.visible_test_cases @problem, current_user.role
+    @no_test_cases_prompt = current_user.role?(:student) ? "No example Test Cases provided." : "No Test Cases were specified for that Problem."
   end
 
   # GET /problems/new
