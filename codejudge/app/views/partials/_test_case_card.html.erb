@@ -1,6 +1,6 @@
 <div class="test-case-card <%= passed ? "test-case-card--success" : "test-case-card--failed" %>">
   <div class="test-case-card__status">
-    <p><%= status %></p>
+    <p><%= passed ? "Passed" : "Failed" %></p>
   </div>
   <span class="test-case-card__separator"></span>
   <p class="test-case-card__copy">This is a sample test case<%=  %></p>

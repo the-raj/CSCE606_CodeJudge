@@ -53,15 +53,7 @@ class Grader
 
       decoded_response = JSON.parse(response.body)
 
-      if decoded_response['stdout'] == value
-        results[key] = 'Pass'
-      elsif decoded_response['stderr'] != ''
-        results[key] = decoded_response['stderr']
-      else
-        results[key] = decoded_response['stdout']
-      end
-
-      @passed = true
+      @passed = decoded_response['stdout'].strip == value ? true : false
       @stdout = decoded_response['stdout']
       @stderr = decoded_response['stderr']
 

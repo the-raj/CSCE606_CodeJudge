@@ -17,6 +17,10 @@ class AttemptsController < ApplicationController
   # GET /attempts/1 or /attempts/1.json
   def show
     @problem = @attempt.problem
+    @test_cases = Score.all.where(attempt_id: @attempt.id)
+    # puts Score.all
+    # @results = @test_cases.where(passed: true).joins(@problem.test_cases)
+    # puts @results
   end
 
   # GET /attempts/new
