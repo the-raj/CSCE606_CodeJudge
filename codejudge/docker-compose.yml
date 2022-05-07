@@ -92,13 +92,6 @@ services:
       DATABASE_HOST: database
       REDIS_URL_SIDEKIQ: redis://redis:6379/1
 
-
-  redis:
-    image: 'redis:4.0-alpine'
-    command: redis-server --requirepass yourpassword
-    volumes:
-      - 'redis:/data'
-
   cable:
     depends_on:
       - 'redis'

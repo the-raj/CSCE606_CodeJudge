@@ -16,6 +16,7 @@ class AttemptsController < ApplicationController
 
   # GET /attempts/1 or /attempts/1.json
   def show
+    @problem = @attempt.problem
   end
 
   # GET /attempts/new
