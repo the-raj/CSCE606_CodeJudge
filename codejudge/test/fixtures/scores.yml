@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  passed: false
+  stdout: MyText
+  stderr: MyText
+
+two:
+  passed: false
+  stdout: MyText
+  stderr: MyText

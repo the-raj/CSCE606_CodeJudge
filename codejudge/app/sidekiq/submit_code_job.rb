@@ -15,7 +15,8 @@ class SubmitCodeJob
     test_case_number = args[4]
 
     current_user = args[5]
-    grader = Grader.new(@testcase,language,code,current_user)
+    current_attempt = args[6]
+    grader = Grader.new(@testcase,language,code,current_user, current_attempt)
 
     results = grader.grade
     ActionCable.server.broadcast(
@@ -28,9 +29,6 @@ class SubmitCodeJob
         finished_at: Time.current.strftime("%m/%d/%Y %r")
       }
     )
-
-
-    # puts(results)
 
   end
 end
