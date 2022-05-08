@@ -14,11 +14,17 @@
 
 <% if @test_cases.any? %>
   <% @test_cases.each_with_index do |test_case, index| %>
-    <div id=<%= "test_case_#{index+1}" %> class="col-12 col-md-4">
+    <div id=<%= "test_case_#{index+1}" %> class="col-12 col-md-4" data-index=<%= index %>>
       <%= render "partials/test_case_card", passed: test_case.passed %>
     </div>
   <% end %>
-<% end %>
+  <% elsif @test_cases.length < @problem.test_cases.length %>
+    <% (@problem.test_cases.length - @test_cases.length).times do %>
+    <div id=<%= "test_case" %> class="col-12 col-md-4">
+      <%= render "partials/test_case_card", passed: false %>
+    </div>
+    <% end %>
+    <% end %>
 
 <div class="nav-options">
   <% if policy(:attempt).edit? %>
