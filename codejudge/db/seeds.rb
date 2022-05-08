@@ -26,15 +26,15 @@ ta.assignments.create!(role: role_ta)
 student = User.create!(username: "student", password: "password", password_confirmation: "password", firstname: "test", lastname: "student", email: "student@example.com")
 
 
-(1..50).each do |id|
-  user = User.create(
-    username: Faker::Creature::Animal.unique.name,
-    password: Faker::Alphanumeric.alphanumeric(number: 10),
-    firstname: Faker::Name.first_name,
-    lastname: Faker::Name.last_name,
-    email: Faker::Internet.email
-  )
-end
+# (1..50).each do |id|
+#   user = User.create(
+#     username: Faker::Creature::Animal.unique.name,
+#     password: Faker::Alphanumeric.alphanumeric(number: 10),
+#     firstname: Faker::Name.first_name,
+#     lastname: Faker::Name.last_name,
+#     email: Faker::Internet.email
+#   )
+# end
 
 #TEST PROBLEMS
 problem = Problem.create!(
@@ -53,12 +53,12 @@ fib.test_cases.create!(input: "2", output: "1", example: false)
 fib.test_cases.create!(input: "9", output: "34", example: false)
 fib.test_cases.create!(input: "1", output: "1", example: false)
 
-(1..10).each do |id|
-  Problem.create(
-    title: Faker::Lorem.sentence(word_count: 3),
-    body: Faker::Lorem.paragraph(sentence_count: 5)
-  )
-end
+# (1..10).each do |id|
+#   Problem.create(
+#     title: Faker::Lorem.sentence(word_count: 3),
+#     body: Faker::Lorem.paragraph(sentence_count: 5)
+#   )
+# end
 
 langs = [
 ["assembly", ".as", "Assembly"],

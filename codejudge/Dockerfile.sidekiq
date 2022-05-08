@@ -1,0 +1,33 @@
+# Use the Ruby 3.1.1 image from Docker Hub as the base image
+# (https://hub.docker.com/_/ruby)
+FROM --platform=linux/amd64 ruby:3.1.1
+
+# Set docker default platform to linux/amd64 (so it doesn't conflict with ARM)
+ENV DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+# Update the package sources for yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+# Update the package list 
+RUN apt-get update -qq
+
+RUN apt-get install -y yarn
+
+# Run yarn install to install JavaScript dependencies.
+RUN yarn install --check-files
+
+# Use a directory called /code in which to store this application's files. 
+# (The directory name is arbitrary and could have been anything.)
+WORKDIR /code
+
+# Copy over local gemfile and lockfile
+COPY Gemfile* /code
+
+# Run bundle install to install the Ruby dependencies.
+RUN bundle install
+
+# Copy all the application's files into the /code directory.
+COPY . /code
+
+CMD ["bundle", "exec" , "sidekiq"]

@@ -49,7 +49,9 @@ services:
     depends_on:
       - 'postgres'
       - 'redis'
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.sidekiq
     command: bundle exec sidekiq
     volumes:
       - '.:/code'
@@ -61,7 +63,9 @@ services:
 
   web:
     # The root directory from which we're building.
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.web
 
     # This makes it so any code changes inside the project
     # directory get synced with Docker. Without this line,
@@ -97,7 +101,9 @@ services:
   cable:
     depends_on:
       - 'redis'
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.web
     command: puma -p 28080 cable/config.ru
     ports:
       - '28080:28080'
