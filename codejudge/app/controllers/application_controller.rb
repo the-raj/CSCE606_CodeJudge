@@ -20,4 +20,10 @@ class ApplicationController < ActionController::Base
       redirect_to '/errors/forbidden'
     end
   end
+
+  def color_mode
+    puts params
+    cookies[:color_mode] = { value: params[:color_mode] }
+    redirect_to problems_path, notice: "Color Mode set to #{params[:color_mode].capitalize}"
+  end
 end

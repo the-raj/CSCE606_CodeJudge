@@ -18,14 +18,7 @@ Rails.application.routes.draw do
   get 'register', to: 'registrations#new'
   post 'register', to: 'registrations#create'
   get 'register/create', to: 'registrations#create', as: :create_register
-  # get 'sign_in', to: 'sessions#new'
-  # post 'sign_in', to: 'sessions#create', as: 'log_in'
-  # get 'password', to: 'passwords#edit', as: 'edit_password'
-  # patch 'password', to: 'passwords#update'
-  # get 'password/reset', to: 'password_resets#new'
-  # post 'password/reset', to: 'password_resets#create'
-  # get 'password/reset/edit', to: 'password_resets#edit'
-  # patch 'password/reset/edit', to: 'password_resets#update'
+  post 'color_mode', to: 'application#color_mode', as: :color_mode
 
   match "/403", to: "errors#forbidden", via: :all
   match "/404", to: "errors#not_found", via: :all
