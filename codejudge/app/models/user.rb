@@ -3,8 +3,8 @@ class User < ApplicationRecord
 
   attr_accessor :password, :password_confirmation
 
-  validates :password, length: (6..30), confirmation: true, unless: :third_party_account?
-  validates :password_confirmation, length: (6..30), unless: :third_party_account?
+  validates :password, length: (6..30), confirmation: true, on: :create, unless: :third_party_account?
+  validates :password_confirmation, length: (6..30), on: :create, unless: :third_party_account?
 
   def password=(password)
     @password = password
