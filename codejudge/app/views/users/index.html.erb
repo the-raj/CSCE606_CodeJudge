@@ -16,13 +16,15 @@
     <tbody>
       <% @users.each do |user| %>
       <tr>
-        <td><%= user.firstname %></td>
-        <td><%= user.lastname %></td>
-        <td><%= user.email %></td>
-        <td><%= user.role %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td> </td>
+        <td><%=link_to user.firstname, user %></td>
+        <td><%=link_to user.lastname, user %></td>
+        <td><%=link_to user.email, user %></td>
+        <td><%=link_to user.role, user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td>
-          <%= link_to 'Delete', user, method: :delete, confirm: 'Are you sure?' %>
+          <% unless current_user?(user) %>
+            <%= button_delete_modal_tag "Delete", user, "User" %>
+          <% end %>
         </td>
       </tr>
       <% end %>

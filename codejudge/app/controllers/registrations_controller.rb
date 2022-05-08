@@ -3,7 +3,6 @@ class RegistrationsController < ApplicationController
 
   # instantiates new user
   def new
-    puts "NEW"
     @user = User.new
   end
 

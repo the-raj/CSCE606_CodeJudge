@@ -14,12 +14,16 @@
   <%= f.text_field :firstname %>
   <%= f.label :lastname %>
   <%= f.text_field :lastname %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
   <%= f.label :email %>
   <%= f.text_field :email %>
-  <%= f.label :roles %>
-  <%= f.collection_check_boxes(:role_ids, Role.all, :id, :name) do |c| %>
-    <%= c.label { c.text } %>
-    <%= c.check_box %>
+  <% unless current_user?(user) %>
+    <%= f.label :roles %>
+    <%= f.collection_check_boxes(:role_ids, Role.all, :id, :name) do |c| %>
+      <%= c.label { c.text } %>
+      <%= c.check_box %>
+    <% end %>
   <% end %>
 
   <div>

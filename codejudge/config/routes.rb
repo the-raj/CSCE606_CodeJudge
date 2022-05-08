@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'errors/not_found'
   get 'errors/internal_server_error'
   get 'errors/forbidden'
-
-  resources :users
+  
+  resources :users, only: [:index, :create, :edit, :update, :show, :destroy]
   resources :problems
   root 'welcome#index'
   post 'log_in', to: 'welcome#log_in'

@@ -11,7 +11,9 @@
     <thead>
       <tr>
         <th>Title</th>
-        <th colspan="2"></th>
+        <% if policy(:problem).new? %>
+          <th colspan="2"></th>
+        <% end %>
       </tr>
     </thead>
     <tbody>

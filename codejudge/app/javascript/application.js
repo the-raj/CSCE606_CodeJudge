@@ -2,8 +2,6 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import cocoon from "cocoon-js-vanilla"
-import "channels/consumer"
-import "channels/grader_channel"
 import * as Modal from "modal"
 
 window.Modal = Modal

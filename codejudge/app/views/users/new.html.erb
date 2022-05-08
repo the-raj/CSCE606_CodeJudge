@@ -1,5 +1,7 @@
+<div class="col-12">
+  <%= render "partials/link", copy: "Back to Problems", path: problems_path, icon: "chevron-left", classes: "link--back" %>
+</div>
+
 <h1>New User</h1>
 
 <%= render 'form', user: @user %>
-
-<%= link_to 'Back', users_path, :class => "button" %>

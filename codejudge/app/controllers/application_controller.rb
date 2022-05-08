@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :require_user_logged_in!
 
+  helper_method :current_user
+
   def current_user
     return unless session[:user_id]
     @current_user ||= User.find(session[:user_id])
@@ -22,7 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
   def color_mode
-    puts params
     cookies[:color_mode] = { value: params[:color_mode] }
     redirect_to problems_path, notice: "Color Mode set to #{params[:color_mode].capitalize}"
   end

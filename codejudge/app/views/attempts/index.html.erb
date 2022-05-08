@@ -15,22 +15,22 @@
           <th>Created</th>
           <th>Problem</th>
           <th>Status</th>
-          <th colspan="2"></th>
+          <% if policy(:problem).new? %>
+            <th colspan="2"></th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
         <% @attempts.each do |attempt| %>
         <tr>
-          <td><%= link_to attempt.created_at, attempt %></td>
-          <td><%= link_to attempt.problem.title, attempt %></td>
+          <td><%= link_to attempt.created_at, attempt, data: {turbo: false} %></td>
+          <td><%= link_to attempt.problem.title, attempt, data: {turbo: false} %></td>
           <td class="<%= attempt_status(attempt) ? "success" : "error" %>">
-            <strong><%= link_to attempt_status(attempt) ? "Passed" : "Failed", attempt%></strong>
+            <strong><%= link_to attempt_status_string(attempt), attempt, data: {turbo: false}%></strong>
           </td>
           <% if policy(:attempt).new? %>
-            <td><%= link_to 'Edit', edit_problem_path(attempt) %></td>
             <td>
-              <%= link_to 'Delete', attempt, method: :delete, data: { confirm: 'Are
-              you sure?' } %>
+              <%= button_delete_modal_tag "Delete", attempt, "Attempt" %>
             </td>
           <% end %>
         </tr>

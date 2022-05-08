@@ -15,6 +15,11 @@
 </p>
 
 <p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
@@ -30,5 +35,5 @@
 
 <div class="nav-options">
   <%= link_to "Edit this User", edit_user_path(@user), :class => "button" %>
-  <%= button_to "Delete this User", @problem, method: :delete, :class => "button button--delete" %>
+  <%= button_delete_modal_tag "Delete this User", @user, "User", class: "button button--delete" %>
 </div>

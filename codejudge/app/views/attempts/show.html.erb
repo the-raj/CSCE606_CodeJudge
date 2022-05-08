@@ -1,3 +1,8 @@
+<% content_for :js do %>
+  <%= javascript_import_module_tag("channels/consumer") %>
+  <%= javascript_import_module_tag("channels/grader_channel") %>
+<% end %>
+
 <% content_for :head do %>
   <style><%= format_code_css('.highlight', style: "xcode") %></style>
 <% end %>
@@ -31,10 +36,7 @@
 </section>
 
 <div class="nav-options">
-  <% if policy(:attempt).edit? %>
-    <%= button_to "Edit this Attempt", edit_attempt_path(@attempt), method: "get", class: "button" %>
-  <% end %>
   <% if policy(:attempt).destroy? %>
-    <%= button_to "Delete this Attempt", @attempt, method: :delete, form: { data: { turbo_confirm: 'Are you sure you want to delete this attempt?' }}, class: "button button--delete"  %>
+    <%= button_delete_modal_tag "Delete this Attempt", @attempt, "Attempt", class: "button button--delete" %>
   <% end %>
 </div>

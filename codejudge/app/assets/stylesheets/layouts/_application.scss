@@ -10,7 +10,10 @@
 
     @each $mq in map-keys($grid-breakpoints) {
       @include media-breakpoint-up($mq) {
-        $width: map-get($map: $container-max-widths, $key: $mq);
+        $width: map-get($container-max-widths, $mq);
+        @if not $width {
+          $width: 0px;
+        }
         right: calc((100vw - #{$width}) / 2 + #{$grid-gutter-width / 2});
       }
     }

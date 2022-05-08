@@ -13,14 +13,12 @@ class Grader
   @@glot_api_token = '45b716c1-c373-44d4-939b-324b4c447939'
 
   def initialize(testcases, language, code, current_user, current_attempt)
-    puts "GRADING INITIALIZED"
     @testcases = testcases
     @language = language
     @extension = Language.where(name: @language).pick(:extension)
     @code = code
     @current_user = current_user
     @current_attempt = current_attempt
-    puts "END"
   end
 
   def grade
@@ -42,15 +40,8 @@ class Grader
       payload = {}
       payload[:stdin] = key
       payload[:files] = @array << {:name => "main#{@extension}", :content => @code}
-
       payload = payload.to_json
-
-      puts(payload)
-
       response = RestClient.post(@url, payload, headers=@headers)
-
-      puts(response.body)
-
       decoded_response = JSON.parse(response.body)
 
       @passed = decoded_response['stdout'].strip == value ? true : false
