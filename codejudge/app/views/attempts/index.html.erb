@@ -23,7 +23,9 @@
         <tr>
           <td><%= link_to attempt.created_at, attempt %></td>
           <td><%= link_to attempt.problem.title, attempt %></td>
-          <td><%= link_to attempt_status(attempt), attempt%></td>
+          <td class="<%= attempt_status(attempt) ? "success" : "error" %>">
+            <strong><%= link_to attempt_status(attempt) ? "Passed" : "Failed", attempt%></strong>
+          </td>
           <% if policy(:attempt).new? %>
             <td><%= link_to 'Edit', edit_problem_path(attempt) %></td>
             <td>
