@@ -1,1 +1,18 @@
-﻿
+﻿#application-page {
+  @include theme(background-color, background);
+  @include theme(color, copy-primary);
+
+  #color-mode-button {
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      top: 150px;
+    }
+
+    @each $mq in map-keys($grid-breakpoints) {
+      @include media-breakpoint-up($mq) {
+        $width: map-get($map: $container-max-widths, $key: $mq);
+        right: calc((100vw - #{$width}) / 2 + #{$grid-gutter-width / 2});
+      }
+    }
+  }
+}

@@ -1,4 +1,7 @@
 #welcome-page {
+  @include theme(background-color, background);
+  @include theme(color, copy-primary);
+  
   display: flex;
   justify-content: center;
 

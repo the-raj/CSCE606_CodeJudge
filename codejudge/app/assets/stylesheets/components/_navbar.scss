@@ -1,5 +1,6 @@
 .navbar {
   @include theme(background-color, header-background);
+  @include theme(color, header-link);
 
   position: fixed;
   top: 0;
@@ -144,6 +145,8 @@
   margin: 0;
   padding-left: 30px;
   justify-content: start;
+  background-color: inherit;
+  color: inherit;
 
   @include media-breakpoint-up(md) {
     position: absolute;

@@ -2,6 +2,7 @@
   $offset-md: 20px;
 
   @include theme(background-color, text-card-background);
+  @include theme(color, text-card-copy);
   display: flex;
   margin-bottom: 60px;
   padding: 15px 10px 30px 10px;

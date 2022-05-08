@@ -18,7 +18,7 @@ button {
   border: none;
   // border-radius: 2px;
   font-size: 15px;
-  transition: background-color 0.2s ease-out; 
+  transition: background-color 0.2s ease-out, border 0.2s ease-out; 
 
   &:hover {
     @include theme(background-color, button-background-hover);
@@ -41,7 +41,7 @@ button {
   }
 
   &--delete {
-    @include theme(border, button-delete-background-hover, 3px solid);
+    @include theme(border, button-delete-border, 3px solid);
     @include theme(color, button-delete-copy);
     @include theme(background-color, button-delete-background);
     height: 55px;
@@ -50,11 +50,12 @@ button {
     &:hover {
       @include theme(color, button-delete-copy-hover);
       @include theme(background-color, button-delete-background-hover);
+      @include theme(border, button-delete-border-hover, 3px solid);
     }
   }
 
   &--submit {
-    @include theme(border, button-submit-background-hover, 3px solid);
+    @include theme(border, button-submit-border, 3px solid);
     @include theme(color, button-submit-copy);
     @include theme(background-color, button-submit-background);
     height: 55px;
@@ -64,6 +65,7 @@ button {
     &:hover {
       @include theme(color, button-submit-copy-hover);
       @include theme(background-color, button-submit-background-hover);
+      @include theme(border, button-submit-border-hover, 3px solid);
     }
   }
 }

@@ -3,7 +3,9 @@
 $themes: ();
 $themeValues: ();
 @import "./themes/light";
+@import "./themes/dark";
 @include generateThemeMappings(light, $light);
+@include generateThemeMappings(dark, $dark);
 
 // @debug "THEMES#{$themes}";
 // @debug "THEME_VALUES#{$themeValues}";
