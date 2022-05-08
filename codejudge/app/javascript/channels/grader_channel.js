@@ -3,6 +3,9 @@ import consumer from "channels/consumer"
 document.addEventListener("turbo:load", () => {
   if (consumer.subscriptions.subscriptions.length === 1) return
   consumer.subscriptions.create("GraderChannel", {
+    connected() {
+      console.log("CONNECTED")
+    },
     received(data) {
       const test_case_card = document.getElementById(`test_case_${data["id"]}`).querySelector(".test-case-card")
       test_case_card.classList.remove("test-case-card--failed")
