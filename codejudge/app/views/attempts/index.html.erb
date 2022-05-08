@@ -14,14 +14,16 @@
         <tr>
           <th>Created</th>
           <th>Problem</th>
+          <th>Status</th>
           <th colspan="2"></th>
         </tr>
       </thead>
       <tbody>
         <% @attempts.each do |attempt| %>
         <tr>
-          <td><%=link_to attempt.created_at, attempt %></td>
-          <td><%=link_to attempt.problem.title, attempt %></td>
+          <td><%= link_to attempt.created_at, attempt %></td>
+          <td><%= link_to attempt.problem.title, attempt %></td>
+          <td><%= link_to attempt_status(attempt), attempt%></td>
           <% if policy(:attempt).new? %>
             <td><%= link_to 'Edit', edit_problem_path(attempt) %></td>
             <td>
