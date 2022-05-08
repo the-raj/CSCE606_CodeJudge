@@ -2,5 +2,8 @@
   <div class="header__content container">
     <%= link_to "CodeJudge", problems_path, id: "logo" %>
     <%= render "partials/navbar" %>
+    <button id="burger-menu" onclick="toggleNavbar()">
+      <%= embedded_svg "burger-menu"%>
+    </button>
   </div>
 </header>

@@ -6,3 +6,7 @@ import "channels"
 import * as Modal from "modal"
 
 window.Modal = Modal
+
+window.toggleNavbar = () => {
+  document.querySelector('.navbar').classList.toggle("navbar--show")
+}
