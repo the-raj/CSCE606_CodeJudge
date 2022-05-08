@@ -12,19 +12,23 @@
   <%= render @attempt %>
 </div>
 
-<% if @test_cases.any? %>
-  <% @test_cases.each_with_index do |test_case, index| %>
-    <div id=<%= "test_case_#{index+1}" %> class="col-12 col-md-4" data-index=<%= index %>>
-      <%= render "partials/test_case_card", passed: test_case.passed %>
-    </div>
-  <% end %>
-  <% elsif @test_cases.length < @problem.test_cases.length %>
-    <% (@problem.test_cases.length - @test_cases.length).times do %>
-    <div id=<%= "test_case" %> class="col-12 col-md-4">
-      <%= render "partials/test_case_card", passed: false %>
-    </div>
+<section id="test-cases" class="container">
+  <div class="row">
+    <% if @graded_test_cases.any? %>
+      <% @graded_test_cases.each_with_index do |test_case, index| %>
+        <div id=<%= "test_case_#{index}" %> class="col-12 col-md-4">
+          <%= render "partials/test_case_card", passed: test_case.passed, finished_at: test_case.created_at %>
+        </div>
+      <% end %>
     <% end %>
+
+    <% @number_ungraded_test_cases.times do |index| %>
+      <div id=<%= "test_case_#{@number_graded_test_cases + index}" %> class="col-12 col-md-4">
+        <%= render "partials/test_case_card" %>
+      </div>
     <% end %>
+  </div>
+</section>
 
 <div class="nav-options">
   <% if policy(:attempt).edit? %>

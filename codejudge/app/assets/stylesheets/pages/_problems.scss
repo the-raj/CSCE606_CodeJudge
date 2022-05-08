@@ -1,9 +1,16 @@
 #test-cases {
   margin-bottom: 30px;
   
-  .test-case-card {
-    height: 100%;
-    margin-bottom: 10px;
+  .row {
+    > div {
+      height: 100%;
+      margin-bottom: 10px;
+
+      .test-case-card,
+      .test-case-card--edit {
+        margin: 0;
+      }
+    }
   }
 }
 

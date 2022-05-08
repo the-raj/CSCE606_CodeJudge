@@ -16,35 +16,10 @@ class AttemptsController < ApplicationController
 
   # GET /attempts/1 or /attempts/1.json
   def show
-
     @problem = @attempt.problem
-    #@test_cases = @attempt.problem.test_cases
-    #@test_cases.each do |item|
-    #  item.passed = "Pending"
-    #end
-
-    @test_cases = Score.all.where(attempt_id: @attempt.id)
-
-=begin
-    @problem = @attempt.problem
-    @all_test_cases = @problem.test_cases
-
-    @graded_test_cases = TestCase.where(id: Score.where(attempt_id: @attempt.id))
-
-    @ungraded_test_cases = @all_test_cases - @graded_test_cases
-
-    @graded = Score.find(@graded_test_cases.pluck(:id))
-
-    puts(@graded,"graded")
-    puts "brea"
-    puts(@ungraded_test_cases, "ungraded")
-
-    @finished_test_cases = @all_test_cases.joins(@graded_test_cases).merge(@graded_test_cases)
-
-    # puts Score.all
-    # @results = @test_cases.where(passed: true).joins(@problem.test_cases)
-    # puts @results
-=end
+    @graded_test_cases = Score.all.where(attempt_id: @attempt.id)
+    @number_graded_test_cases = @graded_test_cases.length
+    @number_ungraded_test_cases = @problem.test_cases.length - @graded_test_cases.length
   end
 
   # GET /attempts/new
@@ -84,9 +59,10 @@ class AttemptsController < ApplicationController
       end
     end
 
-    @testcases_query.each do |item|
-      @testcases.store(item[0], item[1])
-      SubmitCodeJob.perform_async(item[0], item[1], language, @attempt.code, @testcases_query.index(item), current_user.id, @attempt.id)
+    api_timeout = 1
+    @testcases_query.each_with_index do |item, index|
+      timeout = index*api_timeout
+      SubmitCodeJob.perform_at(timeout.seconds.from_now, item[0], item[1], language, @attempt.code, @testcases_query.index(item), current_user.id, @attempt.id)
     end
   end
 

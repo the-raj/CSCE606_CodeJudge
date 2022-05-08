@@ -1,6 +1,7 @@
 .test-case-card {
   @include theme(background-color, test-case-card-background);
   @include theme(color, test-case-card-copy);
+  @include theme(box-shadow, test-case-card-box-shadow, 0 0 15px 3px);
 
   padding: 30px;
   border-radius: 5px;
@@ -32,11 +33,15 @@
   // }
 
   &--success {
-    @include theme(box-shadow, test-case-card-box-shadow, 0 0 15px 3px);
+    .test-case-card__status {
+      @include theme(color, test-case-card-copy-success);
+    }
   }
 
   &--failed {
-    @include theme(color, test-case-card-copy-failed);
+    .test-case-card__status {
+      @include theme(color, test-case-card-copy-failed);
+    }
   }
 
   &--edit {
@@ -44,6 +49,7 @@
     border-radius: 2px;
 
     padding: 20px 20px;
+    box-shadow: none !important;
 
     &:hover {
       transform: none;

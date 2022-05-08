@@ -10,7 +10,7 @@ class Grader
 
   require 'rest-client'
 
-  @@glot_api_token = '7dc296c5-b178-40d8-a0b2-00f06afd05a6'
+  @@glot_api_token = '45b716c1-c373-44d4-939b-324b4c447939'
 
   def initialize(testcases, language, code, current_user, current_attempt)
     puts "GRADING INITIALIZED"

@@ -1,7 +1,11 @@
-<div class="test-case-card <%= passed ? "test-case-card--success" : "test-case-card--failed" %>">
+<div class="test-case-card <%= defined?(passed) && passed ? "test-case-card--success" : "test-case-card--failed" %>">
   <div class="test-case-card__status">
-    <p><%= passed ? "Passed" : "Failed" %></p>
+    <% if defined?(passed) %>
+      <p><%= passed ? "Passed" : "Failed" %></p>
+    <% else %>
+      <p>Running...</p>
+    <% end %>
   </div>
   <span class="test-case-card__separator"></span>
-  <p class="test-case-card__copy">This is a sample test case<%=  %></p>
+  <p class="test-case-card__copy"><%= finished_at if defined?(finished_at) %></p>
 </div>
