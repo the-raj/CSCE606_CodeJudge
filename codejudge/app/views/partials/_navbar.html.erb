@@ -1,4 +1,7 @@
 <nav class="navbar">
+  <button class="navbar__close-button" onclick="toggleNavbar()">
+    <%= embedded_svg "cross" %>
+  </button>
   <div class="navbar__left">
     <ul>
       <li><%= link_to "Problems", problems_path, :class => active_link_class('problems') %></li>
@@ -8,5 +11,5 @@
       <% end %>
     </ul>
   </div>
-    <%= button_to 'Logout', log_out_path, method: :delete, :id => "logout_btn", :class => "button" %>
+  <%= button_to 'Logout', log_out_path, method: :delete, :id => "logout_btn", :class => "button navbar__logout-button" %>
 </nav>

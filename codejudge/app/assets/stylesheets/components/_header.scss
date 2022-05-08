@@ -15,8 +15,30 @@
   @include font-size(40px);
   @include theme(color, header-link);
 
+  flex: 1;
   display: flex;
   align-items: center;
   margin-right: 50px;
   transform: translateY(-3px);
+}
+
+#burger-menu {
+  @include theme(color, header-link);
+  
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  border: none;
+  background: transparent;
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+
+  svg {
+    width: 30px;
+    height: 30px;
+  }
 }
