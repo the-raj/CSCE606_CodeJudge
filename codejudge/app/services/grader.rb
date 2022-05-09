@@ -10,7 +10,7 @@ class Grader
 
   require 'rest-client'
 
-  @@glot_api_token = '45b716c1-c373-44d4-939b-324b4c447939'
+  @@glot_api_token = ENV["GLOT_KEY"]
 
   def initialize(testcases, language, code, current_user, current_attempt)
     @testcases = testcases
