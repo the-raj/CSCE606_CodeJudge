@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <button class="navbar__close-button" onclick="toggleNavbar()">
+    <%= embedded_svg "cross" %>
+  </button>
+  <div class="navbar__left">
+    <ul>
+      <li><%= link_to "New Requests", admins_path, :class => active_link_class('admins') %></li>
+      <li><%= link_to "Approved Requests", approved_requests_path, :class => active_link_class('approved_requests') %></li>
+      <% if policy(:user).index? %>
+        <li><%= link_to "Users", users_path, :class => active_link_class('users') %></li>
+      <% end %>
+    </ul>
+  </div>
+  <%= button_to 'Logout', log_out_path, method: :delete, :id => "logout_btn", :class => "button navbar__logout-button" %>
+</nav>

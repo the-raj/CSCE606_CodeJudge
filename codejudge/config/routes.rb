@@ -1,5 +1,7 @@
 
 Rails.application.routes.draw do
+  resources :approved_requests
+  resources :admins
   resources :languages
   resources :attempts
   resources :problems
