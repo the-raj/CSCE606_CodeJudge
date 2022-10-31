@@ -1,0 +1,17 @@
+<%= form_with(model: approved_request) do |form| %>
+  <% if approved_request.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(approved_request.errors.count, "error") %> prohibited this approved_request from being saved:</h2>
+
+      <ul>
+        <% approved_request.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

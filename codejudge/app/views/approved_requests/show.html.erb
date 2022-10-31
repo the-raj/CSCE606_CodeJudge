@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @approved_request %>
+
+<div>
+  <%= link_to "Edit this approved request", edit_approved_request_path(@approved_request) %> |
+  <%= link_to "Back to approved requests", approved_requests_path %>
+
+  <%= button_to "Destroy this approved request", @approved_request, method: :delete %>
+</div>
