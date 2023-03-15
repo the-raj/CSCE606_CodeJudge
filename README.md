@@ -1,6 +1,7 @@
 # CSCE606_CodeJudge
 
 ## CSCE 606: Software Engineering Spring 2022 Course Project
+Not updated, the latest version (I think) can be found [here](https://github.com/Aggiegeeks/CODEJUDGE).
 
 [![codecov](https://codecov.io/gh/the-raj/CSCE606_CodeJudge/branch/master/graph/badge.svg?token=D2208TK6ZW)](https://codecov.io/gh/the-raj/CSCE606_CodeJudge)
 
